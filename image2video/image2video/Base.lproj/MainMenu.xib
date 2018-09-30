@@ -12,13 +12,25 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
-        <customObject id="HaW-5U-qvL" customClass="Controller"/>
+        <customObject id="HaW-5U-qvL" customClass="Controller">
+            <connections>
+                <outlet property="add_files" destination="M3F-Yf-stQ" id="nOQ-hF-iJ2"/>
+                <outlet property="build_video" destination="mrl-0g-oK7" id="7a9-Za-I0i"/>
+                <outlet property="field_fps" destination="oO5-pc-Nvz" id="Ykq-u9-Ljg"/>
+                <outlet property="field_h" destination="SgJ-3Z-brX" id="2dh-YI-Qu6"/>
+                <outlet property="field_w" destination="kwk-CY-NwX" id="wfh-UY-MVO"/>
+                <outlet property="move_file_down" destination="dE9-UJ-Nvn" id="Zdf-S8-OzG"/>
+                <outlet property="move_file_up" destination="chd-3L-Jty" id="8Gh-TB-VBs"/>
+                <outlet property="remove_file" destination="Tur-xf-qhV" id="tqS-7g-Lan"/>
+                <outlet property="stretch_video" destination="CU5-Ln-u9F" id="vFA-bC-u55"/>
+            </connections>
+        </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -703,7 +715,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <size key="minSize" width="471" height="147"/>
-                                    <size key="maxSize" width="479" height="10000000"/>
+                                    <size key="maxSize" width="486" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 </textView>
                             </subviews>
