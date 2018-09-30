@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F74E52921616313008508B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F74E52821616313008508B7 /* AppDelegate.m */; };
+		7F74E52B21616313008508B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F74E52A21616313008508B7 /* Assets.xcassets */; };
+		7F74E52E21616313008508B7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F74E52C21616313008508B7 /* MainMenu.xib */; };
+		7F74E53121616313008508B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F74E53021616313008508B7 /* main.m */; };
+		7F74E5502161638B008508B7 /* libippicv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E53D2161638A008508B7 /* libippicv.a */; };
+		7F74E5512161638B008508B7 /* liblibjasper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E53E2161638B008508B7 /* liblibjasper.a */; };
+		7F74E5522161638B008508B7 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E53F2161638B008508B7 /* libavutil.a */; };
+		7F74E5532161638B008508B7 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5402161638B008508B7 /* libavcodec.a */; };
+		7F74E5542161638B008508B7 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5412161638B008508B7 /* libavformat.a */; };
+		7F74E5552161638B008508B7 /* liblibjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5422161638B008508B7 /* liblibjpeg.a */; };
+		7F74E5562161638B008508B7 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5432161638B008508B7 /* libavdevice.a */; };
+		7F74E5572161638B008508B7 /* liblibpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5442161638B008508B7 /* liblibpng.a */; };
+		7F74E5582161638B008508B7 /* libippiw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5452161638B008508B7 /* libippiw.a */; };
+		7F74E5592161638B008508B7 /* liblibwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5462161638B008508B7 /* liblibwebp.a */; };
+		7F74E55A2161638B008508B7 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5472161638B008508B7 /* libswresample.a */; };
+		7F74E55B2161638B008508B7 /* libzlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5482161638B008508B7 /* libzlib.a */; };
+		7F74E55C2161638B008508B7 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5492161638B008508B7 /* libswscale.a */; };
+		7F74E55D2161638B008508B7 /* libIlmImf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E54A2161638B008508B7 /* libIlmImf.a */; };
+		7F74E55E2161638B008508B7 /* libavresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E54B2161638B008508B7 /* libavresample.a */; };
+		7F74E55F2161638B008508B7 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E54C2161638B008508B7 /* libavfilter.a */; };
+		7F74E5602161638B008508B7 /* libittnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E54D2161638B008508B7 /* libittnotify.a */; };
+		7F74E5612161638B008508B7 /* liblibtiff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E54E2161638B008508B7 /* liblibtiff.a */; };
+		7F74E5622161638B008508B7 /* libopencv_world.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E54F2161638B008508B7 /* libopencv_world.a */; };
+		7F74E566216163A7008508B7 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E565216163A6008508B7 /* OpenCL.framework */; };
+		7F74E568216163C8008508B7 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E567216163C8008508B7 /* CoreVideo.framework */; };
+		7F74E56A216163D4008508B7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E569216163D4008508B7 /* CoreMedia.framework */; };
+		7F74E56C216163DB008508B7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E56B216163DB008508B7 /* OpenGL.framework */; };
+		7F74E56F216163E7008508B7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E56D216163E6008508B7 /* AVFoundation.framework */; };
+		7F74E570216163E7008508B7 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E56E216163E6008508B7 /* AVKit.framework */; };
+		7F74E572216163F8008508B7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E571216163F7008508B7 /* AudioToolbox.framework */; };
+		7F74E57421616403008508B7 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E57321616402008508B7 /* AppKit.framework */; };
+		7F74E57621616410008508B7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E5752161640F008508B7 /* Cocoa.framework */; };
+		7F74E57921616461008508B7 /* Controller.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F74E57721616461008508B7 /* Controller.mm */; };
+		7F74E57B21616CD3008508B7 /* libf77lapack.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E57A21616CD3008508B7 /* libf77lapack.tbd */; };
+		7F74E57D21616CDD008508B7 /* liblapack.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E57C21616CDD008508B7 /* liblapack.tbd */; };
+		7F74E57F21616CEF008508B7 /* libclapack.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E57E21616CEF008508B7 /* libclapack.tbd */; };
+		7F74E58121616CFB008508B7 /* libcblas.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E58021616CFB008508B7 /* libcblas.tbd */; };
+		7F74E58321616E54008508B7 /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E58221616E54008508B7 /* VideoDecodeAcceleration.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7F74E52421616313008508B7 /* image2video.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = image2video.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F74E52721616313008508B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7F74E52821616313008508B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7F74E52A21616313008508B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7F74E52D21616313008508B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		7F74E52F21616313008508B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F74E53021616313008508B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7F74E53221616313008508B7 /* image2video.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = image2video.entitlements; sourceTree = "<group>"; };
+		7F74E5392161635B008508B7 /* cvlibs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cvlibs; sourceTree = "<group>"; };
+		7F74E53A2161635B008508B7 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		7F74E53D2161638A008508B7 /* libippicv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libippicv.a; path = cvlibs/libippicv.a; sourceTree = "<group>"; };
+		7F74E53E2161638B008508B7 /* liblibjasper.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibjasper.a; path = cvlibs/liblibjasper.a; sourceTree = "<group>"; };
+		7F74E53F2161638B008508B7 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = cvlibs/libavutil.a; sourceTree = "<group>"; };
+		7F74E5402161638B008508B7 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = cvlibs/libavcodec.a; sourceTree = "<group>"; };
+		7F74E5412161638B008508B7 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = cvlibs/libavformat.a; sourceTree = "<group>"; };
+		7F74E5422161638B008508B7 /* liblibjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibjpeg.a; path = cvlibs/liblibjpeg.a; sourceTree = "<group>"; };
+		7F74E5432161638B008508B7 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = cvlibs/libavdevice.a; sourceTree = "<group>"; };
+		7F74E5442161638B008508B7 /* liblibpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibpng.a; path = cvlibs/liblibpng.a; sourceTree = "<group>"; };
+		7F74E5452161638B008508B7 /* libippiw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libippiw.a; path = cvlibs/libippiw.a; sourceTree = "<group>"; };
+		7F74E5462161638B008508B7 /* liblibwebp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibwebp.a; path = cvlibs/liblibwebp.a; sourceTree = "<group>"; };
+		7F74E5472161638B008508B7 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = cvlibs/libswresample.a; sourceTree = "<group>"; };
+		7F74E5482161638B008508B7 /* libzlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzlib.a; path = cvlibs/libzlib.a; sourceTree = "<group>"; };
+		7F74E5492161638B008508B7 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = cvlibs/libswscale.a; sourceTree = "<group>"; };
+		7F74E54A2161638B008508B7 /* libIlmImf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIlmImf.a; path = cvlibs/libIlmImf.a; sourceTree = "<group>"; };
+		7F74E54B2161638B008508B7 /* libavresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavresample.a; path = cvlibs/libavresample.a; sourceTree = "<group>"; };
+		7F74E54C2161638B008508B7 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = cvlibs/libavfilter.a; sourceTree = "<group>"; };
+		7F74E54D2161638B008508B7 /* libittnotify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libittnotify.a; path = cvlibs/libittnotify.a; sourceTree = "<group>"; };
+		7F74E54E2161638B008508B7 /* liblibtiff.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibtiff.a; path = cvlibs/liblibtiff.a; sourceTree = "<group>"; };
+		7F74E54F2161638B008508B7 /* libopencv_world.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_world.a; path = cvlibs/libopencv_world.a; sourceTree = "<group>"; };
+		7F74E5632161639A008508B7 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		7F74E565216163A6008508B7 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		7F74E567216163C8008508B7 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		7F74E569216163D4008508B7 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		7F74E56B216163DB008508B7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		7F74E56D216163E6008508B7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7F74E56E216163E6008508B7 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		7F74E571216163F7008508B7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7F74E57321616402008508B7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		7F74E5752161640F008508B7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7F74E57721616461008508B7 /* Controller.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Controller.mm; sourceTree = "<group>"; };
+		7F74E57821616461008508B7 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		7F74E57A21616CD3008508B7 /* libf77lapack.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libf77lapack.tbd; path = usr/lib/libf77lapack.tbd; sourceTree = SDKROOT; };
+		7F74E57C21616CDD008508B7 /* liblapack.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = liblapack.tbd; path = usr/lib/liblapack.tbd; sourceTree = SDKROOT; };
+		7F74E57E21616CEF008508B7 /* libclapack.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libclapack.tbd; path = usr/lib/libclapack.tbd; sourceTree = SDKROOT; };
+		7F74E58021616CFB008508B7 /* libcblas.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcblas.tbd; path = usr/lib/libcblas.tbd; sourceTree = SDKROOT; };
+		7F74E58221616E54008508B7 /* VideoDecodeAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoDecodeAcceleration.framework; path = System/Library/Frameworks/VideoDecodeAcceleration.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F74E52121616313008508B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F74E58321616E54008508B7 /* VideoDecodeAcceleration.framework in Frameworks */,
+				7F74E57621616410008508B7 /* Cocoa.framework in Frameworks */,
+				7F74E57421616403008508B7 /* AppKit.framework in Frameworks */,
+				7F74E572216163F8008508B7 /* AudioToolbox.framework in Frameworks */,
+				7F74E56F216163E7008508B7 /* AVFoundation.framework in Frameworks */,
+				7F74E570216163E7008508B7 /* AVKit.framework in Frameworks */,
+				7F74E56C216163DB008508B7 /* OpenGL.framework in Frameworks */,
+				7F74E56A216163D4008508B7 /* CoreMedia.framework in Frameworks */,
+				7F74E568216163C8008508B7 /* CoreVideo.framework in Frameworks */,
+				7F74E566216163A7008508B7 /* OpenCL.framework in Frameworks */,
+				7F74E5502161638B008508B7 /* libippicv.a in Frameworks */,
+				7F74E5512161638B008508B7 /* liblibjasper.a in Frameworks */,
+				7F74E5522161638B008508B7 /* libavutil.a in Frameworks */,
+				7F74E5542161638B008508B7 /* libavformat.a in Frameworks */,
+				7F74E5552161638B008508B7 /* liblibjpeg.a in Frameworks */,
+				7F74E5562161638B008508B7 /* libavdevice.a in Frameworks */,
+				7F74E5572161638B008508B7 /* liblibpng.a in Frameworks */,
+				7F74E5582161638B008508B7 /* libippiw.a in Frameworks */,
+				7F74E5592161638B008508B7 /* liblibwebp.a in Frameworks */,
+				7F74E55A2161638B008508B7 /* libswresample.a in Frameworks */,
+				7F74E55B2161638B008508B7 /* libzlib.a in Frameworks */,
+				7F74E55C2161638B008508B7 /* libswscale.a in Frameworks */,
+				7F74E55D2161638B008508B7 /* libIlmImf.a in Frameworks */,
+				7F74E55E2161638B008508B7 /* libavresample.a in Frameworks */,
+				7F74E55F2161638B008508B7 /* libavfilter.a in Frameworks */,
+				7F74E5602161638B008508B7 /* libittnotify.a in Frameworks */,
+				7F74E5612161638B008508B7 /* liblibtiff.a in Frameworks */,
+				7F74E5622161638B008508B7 /* libopencv_world.a in Frameworks */,
+				7F74E5532161638B008508B7 /* libavcodec.a in Frameworks */,
+				7F74E58121616CFB008508B7 /* libcblas.tbd in Frameworks */,
+				7F74E57F21616CEF008508B7 /* libclapack.tbd in Frameworks */,
+				7F74E57D21616CDD008508B7 /* liblapack.tbd in Frameworks */,
+				7F74E57B21616CD3008508B7 /* libf77lapack.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F74E51B21616312008508B7 = {
+			isa = PBXGroup;
+			children = (
+				7F74E52621616313008508B7 /* image2video */,
+				7F74E52521616313008508B7 /* Products */,
+				7F74E5382161635B008508B7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		7F74E52521616313008508B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F74E52421616313008508B7 /* image2video.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7F74E52621616313008508B7 /* image2video */ = {
+			isa = PBXGroup;
+			children = (
+				7F74E57821616461008508B7 /* Controller.h */,
+				7F74E57721616461008508B7 /* Controller.mm */,
+				7F74E52721616313008508B7 /* AppDelegate.h */,
+				7F74E52821616313008508B7 /* AppDelegate.m */,
+				7F74E52A21616313008508B7 /* Assets.xcassets */,
+				7F74E52C21616313008508B7 /* MainMenu.xib */,
+				7F74E52F21616313008508B7 /* Info.plist */,
+				7F74E53021616313008508B7 /* main.m */,
+				7F74E53221616313008508B7 /* image2video.entitlements */,
+			);
+			path = image2video;
+			sourceTree = "<group>";
+		};
+		7F74E5382161635B008508B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F74E58221616E54008508B7 /* VideoDecodeAcceleration.framework */,
+				7F74E58021616CFB008508B7 /* libcblas.tbd */,
+				7F74E57E21616CEF008508B7 /* libclapack.tbd */,
+				7F74E57C21616CDD008508B7 /* liblapack.tbd */,
+				7F74E57A21616CD3008508B7 /* libf77lapack.tbd */,
+				7F74E5752161640F008508B7 /* Cocoa.framework */,
+				7F74E57321616402008508B7 /* AppKit.framework */,
+				7F74E571216163F7008508B7 /* AudioToolbox.framework */,
+				7F74E56D216163E6008508B7 /* AVFoundation.framework */,
+				7F74E56E216163E6008508B7 /* AVKit.framework */,
+				7F74E56B216163DB008508B7 /* OpenGL.framework */,
+				7F74E569216163D4008508B7 /* CoreMedia.framework */,
+				7F74E567216163C8008508B7 /* CoreVideo.framework */,
+				7F74E565216163A6008508B7 /* OpenCL.framework */,
+				7F74E5632161639A008508B7 /* Accelerate.framework */,
+				7F74E5402161638B008508B7 /* libavcodec.a */,
+				7F74E5432161638B008508B7 /* libavdevice.a */,
+				7F74E54C2161638B008508B7 /* libavfilter.a */,
+				7F74E5412161638B008508B7 /* libavformat.a */,
+				7F74E54B2161638B008508B7 /* libavresample.a */,
+				7F74E53F2161638B008508B7 /* libavutil.a */,
+				7F74E54A2161638B008508B7 /* libIlmImf.a */,
+				7F74E53D2161638A008508B7 /* libippicv.a */,
+				7F74E5452161638B008508B7 /* libippiw.a */,
+				7F74E54D2161638B008508B7 /* libittnotify.a */,
+				7F74E53E2161638B008508B7 /* liblibjasper.a */,
+				7F74E5422161638B008508B7 /* liblibjpeg.a */,
+				7F74E5442161638B008508B7 /* liblibpng.a */,
+				7F74E54E2161638B008508B7 /* liblibtiff.a */,
+				7F74E5462161638B008508B7 /* liblibwebp.a */,
+				7F74E54F2161638B008508B7 /* libopencv_world.a */,
+				7F74E5472161638B008508B7 /* libswresample.a */,
+				7F74E5492161638B008508B7 /* libswscale.a */,
+				7F74E5482161638B008508B7 /* libzlib.a */,
+				7F74E5392161635B008508B7 /* cvlibs */,
+				7F74E53A2161635B008508B7 /* include */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7F74E52321616313008508B7 /* image2video */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F74E53521616313008508B7 /* Build configuration list for PBXNativeTarget "image2video" */;
+			buildPhases = (
+				7F74E52021616313008508B7 /* Sources */,
+				7F74E52121616313008508B7 /* Frameworks */,
+				7F74E52221616313008508B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = image2video;
+			productName = image2video;
+			productReference = 7F74E52421616313008508B7 /* image2video.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7F74E51C21616312008508B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Jared Bruni";
+				TargetAttributes = {
+					7F74E52321616313008508B7 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 7F74E51F21616312008508B7 /* Build configuration list for PBXProject "image2video" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7F74E51B21616312008508B7;
+			productRefGroup = 7F74E52521616313008508B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F74E52321616313008508B7 /* image2video */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7F74E52221616313008508B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F74E52B21616313008508B7 /* Assets.xcassets in Resources */,
+				7F74E52E21616313008508B7 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F74E52021616313008508B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F74E53121616313008508B7 /* main.m in Sources */,
+				7F74E52921616313008508B7 /* AppDelegate.m in Sources */,
+				7F74E57921616461008508B7 /* Controller.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7F74E52C21616313008508B7 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F74E52D21616313008508B7 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7F74E53321616313008508B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7F74E53421616313008508B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7F74E53621616313008508B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = image2video/image2video.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = ./include;
+				INFOPLIST_FILE = image2video/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cvlibs",
+				);
+				OTHER_LDFLAGS = (
+					/usr/lib/libbz2.dylib,
+					/usr/lib/libdl.dylib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = LostSideDead.image2video;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7F74E53721616313008508B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = image2video/image2video.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				HEADER_SEARCH_PATHS = ./include;
+				INFOPLIST_FILE = image2video/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/cvlibs",
+				);
+				OTHER_LDFLAGS = (
+					/usr/lib/libbz2.dylib,
+					/usr/lib/libdl.dylib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = LostSideDead.image2video;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F74E51F21616312008508B7 /* Build configuration list for PBXProject "image2video" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F74E53321616313008508B7 /* Debug */,
+				7F74E53421616313008508B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F74E53521616313008508B7 /* Build configuration list for PBXNativeTarget "image2video" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F74E53621616313008508B7 /* Debug */,
+				7F74E53721616313008508B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7F74E51C21616312008508B7 /* Project object */;
+}
