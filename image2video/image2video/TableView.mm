@@ -34,5 +34,25 @@
     [file_values removeAllObjects];
 }
 
+- (void) moveUp: (NSInteger) index {
+    if(index > 0) {
+        NSInteger pos = index-1;
+        id obj = [file_values objectAtIndex:pos];
+        id mv = [file_values objectAtIndex:index];
+        [file_values setObject:obj atIndexedSubscript:index];
+        [file_values setObject:mv atIndexedSubscript: pos];
+    }
+}
+- (void) moveDown: (NSInteger) index {
+    if(index < [file_values count]-1) {
+        NSInteger pos = index+1;
+        id obj = [file_values objectAtIndex:pos];
+        id mv = [file_values objectAtIndex:index];
+        [file_values setObject:obj atIndexedSubscript:index];
+        [file_values setObject:mv atIndexedSubscript: pos];
+    }
+}
+
+
 
 @end

@@ -82,17 +82,22 @@
 }
 
 - (IBAction) moveUp: (id) sender {
-    
+    NSInteger index = [table_view selectedRow];
+    [table_controller moveUp:index];
+    [table_view reloadData];
 }
 
 - (IBAction) moveDown: (id) sender {
-    
+    NSInteger index = [table_view selectedRow];
+    [table_controller moveDown: index];
+    [table_view reloadData];
 }
 
 - (IBAction) clearList: (id) sender {
     [table_controller clearList];
     [table_view reloadData];
 }
+
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3) {

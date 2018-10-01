@@ -9,4 +9,6 @@
 - (void) addFile:(NSString *)filename;
 - (void) removeIndex: (NSInteger)index;
 - (void) clearList;
+- (void) moveUp: (NSInteger) index;
+- (void) moveDown: (NSInteger) index;
 @end
