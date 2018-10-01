@@ -63,7 +63,6 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
                 if(frame.empty()) {
                     dispatch_sync(dispatch_get_main_queue(), ^{
                         [self flushToLog: [NSString stringWithFormat:@"Could not open file: %@ skipping...\n", file_n]];
-                        [self enableControls];
                     });
                     continue;
                 }
