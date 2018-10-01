@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F6C3D632161C9F9003EF821 /* TableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F6C3D622161C9F8003EF821 /* TableView.mm */; };
 		7F74E52921616313008508B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F74E52821616313008508B7 /* AppDelegate.m */; };
 		7F74E52B21616313008508B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F74E52A21616313008508B7 /* Assets.xcassets */; };
 		7F74E52E21616313008508B7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F74E52C21616313008508B7 /* MainMenu.xib */; };
@@ -48,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F6C3D612161C9F8003EF821 /* TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableView.h; sourceTree = "<group>"; };
+		7F6C3D622161C9F8003EF821 /* TableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TableView.mm; sourceTree = "<group>"; };
 		7F74E52421616313008508B7 /* image2video.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = image2video.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F74E52721616313008508B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F74E52821616313008508B7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 		7F74E52621616313008508B7 /* image2video */ = {
 			isa = PBXGroup;
 			children = (
+				7F6C3D612161C9F8003EF821 /* TableView.h */,
+				7F6C3D622161C9F8003EF821 /* TableView.mm */,
 				7F74E57821616461008508B7 /* Controller.h */,
 				7F74E57721616461008508B7 /* Controller.mm */,
 				7F74E52721616313008508B7 /* AppDelegate.h */,
@@ -289,6 +294,7 @@
 				7F74E53121616313008508B7 /* main.m in Sources */,
 				7F74E52921616313008508B7 /* AppDelegate.m in Sources */,
 				7F74E57921616461008508B7 /* Controller.mm in Sources */,
+				7F6C3D632161C9F9003EF821 /* TableView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

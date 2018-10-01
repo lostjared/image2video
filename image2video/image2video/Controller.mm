@@ -4,13 +4,27 @@
 #include<cstdio>
 #include<cstdlib>
 #include<cmath>
+#include<iostream>
+
 
 @implementation Controller
+
+- (void)awakeFromNib {
+    table_controller = [[TableController alloc] init];
+    [table_controller createValues];
+    [table_view setDelegate:table_controller];
+    [table_view setDataSource:table_controller];
+    [table_view reloadData];
+}
 
 - (IBAction) buildVideo: (id) sender {
     double fps_value = 0,width_value = 0, height_value = 0;
     if([self checkInput:&fps_value width:&width_value height:&height_value] == NO)
         return;
+    
+    //NSInteger stretch_image = [stretch_video integerValue];
+    // if stretch_image == NSOnState
+    
     
     cv::VideoWriter writer;
 }
@@ -44,7 +58,8 @@
 }
 
 - (IBAction) addFiles: (id) sender {
-    
+    [table_controller addFile: @"test.txt"];
+    [table_view reloadData];
 }
 
 - (IBAction) rmvFiles: (id) sender {
@@ -58,7 +73,6 @@
 - (IBAction) moveDown: (id) sender {
     
 }
-
 
 @end
 
