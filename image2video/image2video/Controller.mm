@@ -1,13 +1,19 @@
 
 #include<opencv2/videoio.hpp>
+#include<opencv2/imgproc.hpp>
+#include<opencv2/highgui.hpp>
+
 #import "Controller.h"
 #include<cstdio>
 #include<cstdlib>
 #include<cmath>
 #include<iostream>
 
+cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, const cv::Scalar &bgcolor);
 
 @implementation Controller
+
+@synthesize table_controller;
 
 - (void)awakeFromNib {
     table_controller = [[TableController alloc] init];
@@ -22,11 +28,71 @@
     if([self checkInput:&fps_value width:&width_value height:&height_value] == NO)
         return;
     
-    //NSInteger stretch_image = [stretch_video integerValue];
-    // if stretch_image == NSOnState
-    
-    
-    cv::VideoWriter writer;
+    if([table_controller.file_values count] < fps_value) {
+        _NSRunAlertPanel(@"Requires some image files to produce a video", @"Not enough files", @"Ok", nil, nil);
+        return;
+    }
+    NSInteger stretch_image = [stretch_video integerValue];
+    NSSavePanel *panel = [NSSavePanel savePanel];
+    [panel setCanCreateDirectories:YES];
+    [panel setAllowedFileTypes: [NSArray arrayWithObject:@"mov"]];
+    [panel setAllowsOtherFileTypes:NO];
+    if([panel runModal]) {
+        NSString *fileName = [[panel URL] path];
+        NSLog(@"Write to file: %@\n", fileName);
+        [build_video setEnabled:NO];
+        [add_files setEnabled:NO];
+        [remove_file setEnabled:NO];
+        [move_file_up setEnabled:NO];
+        [move_file_down setEnabled:NO];
+        [stretch_video setEnabled:NO];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            cv::VideoWriter writer;
+            if(!writer.open([fileName UTF8String],CV_FOURCC('m', 'p', '4', 'v'), fps_value, cv::Size(width_value, height_value), true)) {
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [self flushToLog: @"Could not create Video Writer...\n"];
+                    [self enableControls];
+                });
+                return;
+            }
+            cv::Mat frame, image;
+            for(NSInteger i = 0; i < [self.table_controller.file_values count]; ++i) {
+                
+                NSString *file_n = [self.table_controller.file_values objectAtIndex: i];
+                frame = cv::imread([file_n UTF8String]);
+                if(frame.empty()) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        [self flushToLog: [NSString stringWithFormat:@"Could not open file: %@ skipping...\n", file_n]];
+                        [self enableControls];
+                    });
+                    continue;
+                }
+                
+                if(stretch_image == NSOnState)
+                	cv::resize(frame, image, cv::Size(width_value, height_value));
+            	else
+                	image = resizeKeepAspectRatio(frame, cv::Size(width_value, height_value), cv::Scalar(0,0,0));
+            	
+                writer.write(image);
+                
+                float val = i+1;
+                float size = [self.table_controller.file_values count];
+                float percent_complete = 0;
+                if(size != 0)
+                    percent_complete = (val/size)*100;
+            
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [self flushToLog: [NSString stringWithFormat:@"Wrote frame [%ld/%ld] - %d%% \n", (long)i, (long)[self.table_controller.file_values count], (int)percent_complete]];;
+                });
+            }
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self flushToLog: [NSString stringWithFormat:@"Completed wrote to file: %@\n",fileName]];
+                [self enableControls];
+            });
+            writer.release();
+        });
+    }
 }
 
 - (BOOL) checkInput: (double *)fps_value width:(double *)width_value height:(double *)height_value {
@@ -98,6 +164,23 @@
     [table_view reloadData];
 }
 
+- (void) flushToLog: (NSString *) val {
+    NSTextView *sv = text_log;
+    NSString *value = [[sv textStorage] string];
+    NSString *newValue = [[NSString alloc] initWithFormat: @"%@%@", value, val];
+    [sv setString: newValue];
+    [sv scrollRangeToVisible:NSMakeRange([[sv string] length], 0)];
+}
+
+- (void) enableControls {
+    [build_video setEnabled:YES];
+    [add_files setEnabled:YES];
+    [remove_file setEnabled:YES];
+    [move_file_up setEnabled:YES];
+    [move_file_down setEnabled:YES];
+    [stretch_video setEnabled:YES];
+}
+
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3) {
@@ -109,3 +192,20 @@ NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NS
     NSInteger rt_val = [alert runModal];
     return rt_val;
 }
+
+cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, const cv::Scalar &bgcolor) {
+    cv::Mat output;
+    double h1 = dstSize.width * (input.rows/(double)input.cols);
+    double w2 = dstSize.height * (input.cols/(double)input.rows);
+    if(h1 <= dstSize.height)
+        cv::resize(input, output, cv::Size(dstSize.width, h1));
+    else
+        cv::resize(input, output, cv::Size(w2, dstSize.height));
+    int top = (dstSize.height-output.rows)/2;
+    int down = (dstSize.height-output.rows+1)/2;
+    int left = (dstSize.width - output.cols)/2;
+    int right = (dstSize.width - output.cols+1)/2;
+    cv::copyMakeBorder(output, output, top, down, left, right, cv::BORDER_CONSTANT, bgcolor);
+    return output;
+}
+

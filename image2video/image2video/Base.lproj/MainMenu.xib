@@ -30,6 +30,7 @@
                 <outlet property="remove_file" destination="Tur-xf-qhV" id="tqS-7g-Lan"/>
                 <outlet property="stretch_video" destination="CU5-Ln-u9F" id="vFA-bC-u55"/>
                 <outlet property="table_view" destination="tjU-68-SVy" id="4LF-s5-Ljc"/>
+                <outlet property="text_log" destination="O5u-92-spW" id="xlD-pZ-eAg"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>

@@ -8,8 +8,9 @@
     IBOutlet NSTextView  *text_log;
     IBOutlet NSTextField *field_fps, *field_w, *field_h;
     double fps_value, width_value, height_value;
-    TableController *table_controller;
 }
+
+@property (readwrite) TableController *table_controller;
 
 - (IBAction) buildVideo: (id) sender;
 - (BOOL) checkInput: (double *)fps width:(double *)w height:(double *)h;
@@ -18,6 +19,8 @@
 - (IBAction) moveUp: (id) sender;
 - (IBAction) moveDown: (id) sender;
 - (IBAction) clearList: (id) sender;
+- (void) flushToLog: (NSString*) str;
+- (void) enableControls;
 
 @end
 

@@ -4,6 +4,8 @@
 
 @implementation TableController
 
+@synthesize file_values;
+
 - (void) createValues {
     file_values = [[NSMutableArray alloc] init];
     
