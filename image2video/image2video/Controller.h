@@ -2,7 +2,7 @@
 #import<Cocoa/Cocoa.h>
 #import "TableView.h"
 
-@interface Controller : NSObject<NSTableViewDataSource, NSTableViewDelegate> {
+@interface Controller : NSObject {
     IBOutlet NSButton *add_files, *remove_file, *move_file_up, *move_file_down, *build_video, *stretch_video;
     IBOutlet NSTableView *table_view;
     IBOutlet NSTextView  *text_log;
