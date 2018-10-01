@@ -10,7 +10,7 @@
 }
 
 - (IBAction) buildVideo: (id) sender;
-- (BOOL) checkInput;
+- (BOOL) checkInput: (double *)fps width:(double *)w height:(double *)h;
 
 @end
 

@@ -12,29 +12,36 @@
 @implementation Controller
 
 - (IBAction) buildVideo: (id) sender {
-    
-    fps_value = width_value = height_value = 0;
-    if([self checkInput] == NO)
+    double fps_value = 0,width_value = 0, height_value = 0;
+    if([self checkInput:&fps_value width:&width_value height:&height_value] == NO)
         return;
     
     cv::VideoWriter writer;
-    
 }
 
-- (BOOL) checkInput {
-    fps_value = atof([[field_fps stringValue] UTF8String]);
-    if(fps_value<= 0 || fps_value > 60) {
+- (BOOL) checkInput: (double *)fps_value width:(double *)width_value height:(double *)height_value {
+    *fps_value = atof([[field_fps stringValue] UTF8String]);
+    if(*fps_value<= 0 || *fps_value > 60) {
         _NSRunAlertPanel(@"FPS value is incorrect", @"Please use a valid frames per second value", @"Ok", nil, nil);
+        *fps_value = 0;
+        *width_value = 0;
+        *height_value = 0;
         return NO;
     }
-    width_value = atof([[field_w stringValue] UTF8String]);
-    if(width_value <= 0 || width_value > 3840) {
+    *width_value = atof([[field_w stringValue] UTF8String]);
+    if(*width_value <= 0 || *width_value > 3840) {
         _NSRunAlertPanel(@"Enter valid frame width", @"Please use a valid frame width variable", @"Ok", nil, nil);
+        *fps_value = 0;
+        *width_value = 0;
+        *height_value = 0;
         return NO;
     }
-    height_value = atof([[field_h stringValue] UTF8String]);
-    if(height_value <= 0 || width_value > 2160) {
+    *height_value = atof([[field_h stringValue] UTF8String]);
+    if(*height_value <= 0 || *height_value > 2160) {
         _NSRunAlertPanel(@"Enter valid frame height", @"Please use a valid frame height variable", @"Ok", nil, nil);
+        *fps_value = 0;
+        *width_value = 0;
+        *height_value = 0;
         return NO;
     }
     return YES;
