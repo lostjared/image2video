@@ -15,6 +15,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="controller" destination="HaW-5U-qvL" id="wcb-wO-gzC"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -882,6 +883,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="addFiles:" target="HaW-5U-qvL" id="tZY-7l-TOR"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="dE9-UJ-Nvn">
                         <rect key="frame" x="120" y="229" width="111" height="32"/>
@@ -890,6 +894,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="moveDown:" target="HaW-5U-qvL" id="h6P-uF-EPE"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="chd-3L-Jty">
                         <rect key="frame" x="15" y="229" width="111" height="32"/>
@@ -898,6 +905,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="moveUp:" target="HaW-5U-qvL" id="ccn-GD-SCl"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="Tur-xf-qhV">
                         <rect key="frame" x="342" y="229" width="89" height="32"/>
@@ -906,6 +916,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="rmvFiles:" target="HaW-5U-qvL" id="3gl-yD-BBm"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" id="mrl-0g-oK7">
                         <rect key="frame" x="442" y="172" width="71" height="32"/>
@@ -929,7 +942,7 @@
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="157.5" y="156"/>
+            <point key="canvasLocation" x="157" y="41"/>
         </window>
     </objects>
 </document>

@@ -11,6 +11,10 @@
 
 - (IBAction) buildVideo: (id) sender;
 - (BOOL) checkInput: (double *)fps width:(double *)w height:(double *)h;
+- (IBAction) addFiles: (id) sender;
+- (IBAction) rmvFiles: (id) sender;
+- (IBAction) moveUp: (id) sender;
+- (IBAction) moveDown: (id) sender;
 
 @end
 

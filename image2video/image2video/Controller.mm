@@ -1,10 +1,6 @@
 
-#import<Cocoa/Cocoa.h>
-#undef check
-
 #include<opencv2/videoio.hpp>
 #import "Controller.h"
-
 #include<cstdio>
 #include<cstdlib>
 #include<cmath>
@@ -46,6 +42,23 @@
     }
     return YES;
 }
+
+- (IBAction) addFiles: (id) sender {
+    
+}
+
+- (IBAction) rmvFiles: (id) sender {
+    
+}
+
+- (IBAction) moveUp: (id) sender {
+    
+}
+
+- (IBAction) moveDown: (id) sender {
+    
+}
+
 
 @end
 
