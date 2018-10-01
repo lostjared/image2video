@@ -30,6 +30,9 @@
 - (void) removeIndex: (NSInteger)index {
     [file_values removeObjectAtIndex:index];
 }
+- (void) clearList {
+    [file_values removeAllObjects];
+}
 
 
 @end

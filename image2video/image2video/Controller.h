@@ -17,6 +17,7 @@
 - (IBAction) rmvFiles: (id) sender;
 - (IBAction) moveUp: (id) sender;
 - (IBAction) moveDown: (id) sender;
+- (IBAction) clearList: (id) sender;
 
 @end
 

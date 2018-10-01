@@ -8,5 +8,5 @@
 - (void) createValues;
 - (void) addFile:(NSString *)filename;
 - (void) removeIndex: (NSInteger)index;
-
+- (void) clearList;
 @end

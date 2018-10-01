@@ -58,12 +58,27 @@
 }
 
 - (IBAction) addFiles: (id) sender {
-    [table_controller addFile: @"test.txt"];
-    [table_view reloadData];
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseFiles:YES];
+    [panel setAllowsMultipleSelection:YES];
+    [panel setCanChooseDirectories:NO];
+    [panel setAllowedFileTypes: [NSArray arrayWithObjects: @"png", @"jpg", @"bmp", nil]];
+    if([panel runModal]) {
+        NSInteger count = [[panel URLs] count];
+        for(NSInteger i = 0; i < count; ++i) {
+            NSURL *u = [[panel URLs] objectAtIndex:i];
+            [table_controller addFile: [u path]];
+        }
+        [table_view reloadData];
+    }
 }
 
 - (IBAction) rmvFiles: (id) sender {
-    
+    NSInteger row = [table_view selectedRow];
+    if(row >= 0) {
+        [table_controller removeIndex:row];
+        [table_view reloadData];
+    }
 }
 
 - (IBAction) moveUp: (id) sender {
@@ -74,6 +89,10 @@
     
 }
 
+- (IBAction) clearList: (id) sender {
+    [table_controller clearList];
+    [table_view reloadData];
+}
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3) {
