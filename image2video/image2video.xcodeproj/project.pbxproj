@@ -46,6 +46,7 @@
 		7F74E57F21616CEF008508B7 /* libclapack.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E57E21616CEF008508B7 /* libclapack.tbd */; };
 		7F74E58121616CFB008508B7 /* libcblas.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E58021616CFB008508B7 /* libcblas.tbd */; };
 		7F74E58321616E54008508B7 /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E58221616E54008508B7 /* VideoDecodeAcceleration.framework */; };
+		7FB6802F2162D5C000362EE3 /* reel.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6802E2162D5C000362EE3 /* reel.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		7F74E57E21616CEF008508B7 /* libclapack.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libclapack.tbd; path = usr/lib/libclapack.tbd; sourceTree = SDKROOT; };
 		7F74E58021616CFB008508B7 /* libcblas.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcblas.tbd; path = usr/lib/libcblas.tbd; sourceTree = SDKROOT; };
 		7F74E58221616E54008508B7 /* VideoDecodeAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoDecodeAcceleration.framework; path = System/Library/Frameworks/VideoDecodeAcceleration.framework; sourceTree = SDKROOT; };
+		7FB6802E2162D5C000362EE3 /* reel.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = reel.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				7F74E52A21616313008508B7 /* Assets.xcassets */,
 				7F74E52C21616313008508B7 /* MainMenu.xib */,
 				7F74E52F21616313008508B7 /* Info.plist */,
+				7FB6802E2162D5C000362EE3 /* reel.icns */,
 				7F74E53021616313008508B7 /* main.m */,
 				7F74E53221616313008508B7 /* image2video.entitlements */,
 			);
@@ -253,6 +256,11 @@
 				TargetAttributes = {
 					7F74E52321616313008508B7 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -280,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F74E52B21616313008508B7 /* Assets.xcassets in Resources */,
+				7FB6802F2162D5C000362EE3 /* reel.icns in Resources */,
 				7F74E52E21616313008508B7 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,7 +437,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_ENTITLEMENTS = image2video/image2video.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				HEADER_SEARCH_PATHS = ./include;
@@ -455,7 +463,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CODE_SIGN_ENTITLEMENTS = image2video/image2video.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
