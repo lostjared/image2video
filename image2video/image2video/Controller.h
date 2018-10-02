@@ -3,10 +3,11 @@
 #import "TableView.h"
 
 @interface Controller : NSObject {
-    IBOutlet NSButton *add_files, *remove_file, *move_file_up, *move_file_down, *build_video, *stretch_video, *clear_button;
+    IBOutlet NSButton *add_files, *remove_file, *move_file_up, *move_file_down, *build_video, *stretch_video, *clear_button, *scan_button;
     IBOutlet NSTableView *table_view;
     IBOutlet NSTextView  *text_log;
     IBOutlet NSTextField *field_fps, *field_w, *field_h;
+    IBOutlet NSWindow *scan_window;
     double fps_value, width_value, height_value;
 }
 
@@ -19,6 +20,7 @@
 - (IBAction) moveUp: (id) sender;
 - (IBAction) moveDown: (id) sender;
 - (IBAction) clearList: (id) sender;
+- (IBAction) scanDir: (id) sender;
 - (void) flushToLog: (NSString*) str;
 - (void) enableControls;
 

@@ -29,6 +29,8 @@
                 <outlet property="move_file_down" destination="dE9-UJ-Nvn" id="Zdf-S8-OzG"/>
                 <outlet property="move_file_up" destination="chd-3L-Jty" id="8Gh-TB-VBs"/>
                 <outlet property="remove_file" destination="Tur-xf-qhV" id="tqS-7g-Lan"/>
+                <outlet property="scan_button" destination="wws-tt-gBy" id="V8O-Kc-5ZF"/>
+                <outlet property="scan_window" destination="oEM-Ot-xLn" id="BYM-C6-UA8"/>
                 <outlet property="stretch_video" destination="CU5-Ln-u9F" id="vFA-bC-u55"/>
                 <outlet property="table_view" destination="tjU-68-SVy" id="4LF-s5-Ljc"/>
                 <outlet property="text_log" destination="O5u-92-spW" id="xlD-pZ-eAg"/>
@@ -181,7 +183,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="kwk-CY-NwX">
-                        <rect key="frame" x="404" y="257" width="69" height="22"/>
+                        <rect key="frame" x="391" y="257" width="69" height="22"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="1920" drawsBackground="YES" id="szy-2s-hOI">
                             <font key="font" metaFont="system"/>
@@ -190,7 +192,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="8uN-fk-9MR">
-                        <rect key="frame" x="472" y="261" width="11" height="17"/>
+                        <rect key="frame" x="459" y="261" width="11" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="x" id="IDu-bM-lI9">
                             <font key="font" metaFont="system"/>
@@ -198,14 +200,6 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" misplaced="YES" id="CU5-Ln-u9F">
-                        <rect key="frame" x="575" y="258" width="84" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Stretch " bezelStyle="regularSquare" imagePosition="left" inset="2" id="0yV-k9-BZn">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <button verticalHuggingPriority="750" misplaced="YES" id="M3F-Yf-stQ">
                         <rect key="frame" x="653" y="250" width="89" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -262,7 +256,7 @@
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="SgJ-3Z-brX">
-                        <rect key="frame" x="481" y="257" width="69" height="22"/>
+                        <rect key="frame" x="468" y="257" width="69" height="22"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="1080" drawsBackground="YES" id="Emn-Al-bD9">
                             <font key="font" metaFont="system"/>
@@ -339,7 +333,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="jVB-Ai-Ke2">
-                        <rect key="frame" x="332" y="259" width="72" height="17"/>
+                        <rect key="frame" x="319" y="259" width="72" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Resolution:" id="xMg-Ii-7h7">
                             <font key="font" metaFont="system"/>
@@ -347,9 +341,39 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="wws-tt-gBy">
+                        <rect key="frame" x="572" y="250" width="89" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Scan" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PHC-C3-O58">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="scanDir:" target="HaW-5U-qvL" id="ZSx-CB-yNp"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="CU5-Ln-u9F">
+                        <rect key="frame" x="740" y="226" width="84" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Stretch " bezelStyle="regularSquare" imagePosition="left" inset="2" id="0yV-k9-BZn">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="-127" y="83"/>
+        </window>
+        <window title="Scan Directories" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="oEM-Ot-xLn">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="283" y="305" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <view key="contentView" id="oWu-cx-6RX">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </view>
+            <point key="canvasLocation" x="648" y="53"/>
         </window>
     </objects>
 </document>

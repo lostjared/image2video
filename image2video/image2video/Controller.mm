@@ -47,6 +47,7 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
         [move_file_down setEnabled:NO];
         [stretch_video setEnabled:NO];
         [clear_button setEnabled:NO];
+        [scan_button setEnabled:NO];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
             cv::VideoWriter writer;
             if(!writer.open([fileName UTF8String],CV_FOURCC('m', 'p', '4', 'v'), fps_value, cv::Size(width_value, height_value), true)) {
@@ -164,6 +165,10 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
     [table_view reloadData];
 }
 
+- (IBAction) scanDir: (id) sender {
+    [scan_window orderFront: self];
+}
+
 - (void) flushToLog: (NSString *) val {
     NSTextView *sv = text_log;
     NSString *value = [[sv textStorage] string];
@@ -180,6 +185,7 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
     [move_file_down setEnabled:YES];
     [stretch_video setEnabled:YES];
     [clear_button setEnabled:YES];
+    [scan_button setEnabled:YES];
 }
 
 @end
