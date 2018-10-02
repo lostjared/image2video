@@ -61,7 +61,7 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
                 cv::VideoWriter writer;
                 if(!writer.open([fileName UTF8String],CV_FOURCC('m', 'p', '4', 'v'), fps_value, cv::Size(width_value, height_value), true)) {
                     dispatch_sync(dispatch_get_main_queue(), ^{
-                        [self flushToLog: @"Could not create Video Writer...\n"];
+                        [self flushToLog: [NSString stringWithFormat:@"Could not create Video Writer with file: %@\n", fileName]];
                         [self enableControls];
                     });
                     return;
