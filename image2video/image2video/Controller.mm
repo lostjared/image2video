@@ -81,12 +81,12 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
                     percent_complete = (val/size)*100;
             
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    [self flushToLog: [NSString stringWithFormat:@"Wrote frame [%ld/%ld] - %d%% \n", (long)i, (long)[self.table_controller.file_values count], (int)percent_complete]];;
+                    [self flushToLog: [NSString stringWithFormat:@"Wrote frame [%ld/%ld] - %d%% \n", (long)(i+1), (long)[self.table_controller.file_values count], (int)percent_complete]];;
                 });
             }
             
             dispatch_sync(dispatch_get_main_queue(), ^{
-                [self flushToLog: [NSString stringWithFormat:@"Completed wrote to file: %@\n",fileName]];
+                [self flushToLog: [NSString stringWithFormat:@"100%% - Completed wrote to file: %@\n",fileName]];
                 [self enableControls];
             });
             writer.release();
