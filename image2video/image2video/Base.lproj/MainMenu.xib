@@ -22,6 +22,7 @@
             <connections>
                 <outlet property="add_files" destination="M3F-Yf-stQ" id="nOQ-hF-iJ2"/>
                 <outlet property="build_video" destination="mrl-0g-oK7" id="7a9-Za-I0i"/>
+                <outlet property="clear_button" destination="LuJ-KY-0XF" id="wMu-46-yox"/>
                 <outlet property="field_fps" destination="oO5-pc-Nvz" id="Ykq-u9-Ljg"/>
                 <outlet property="field_h" destination="SgJ-3Z-brX" id="2dh-YI-Qu6"/>
                 <outlet property="field_w" destination="kwk-CY-NwX" id="wfh-UY-MVO"/>

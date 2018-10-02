@@ -3,7 +3,7 @@
 #import "TableView.h"
 
 @interface Controller : NSObject {
-    IBOutlet NSButton *add_files, *remove_file, *move_file_up, *move_file_down, *build_video, *stretch_video;
+    IBOutlet NSButton *add_files, *remove_file, *move_file_up, *move_file_down, *build_video, *stretch_video, *clear_button;
     IBOutlet NSTableView *table_view;
     IBOutlet NSTextView  *text_log;
     IBOutlet NSTextField *field_fps, *field_w, *field_h;

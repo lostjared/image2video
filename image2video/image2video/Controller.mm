@@ -46,6 +46,7 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
         [move_file_up setEnabled:NO];
         [move_file_down setEnabled:NO];
         [stretch_video setEnabled:NO];
+        [clear_button setEnabled:NO];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
             cv::VideoWriter writer;
             if(!writer.open([fileName UTF8String],CV_FOURCC('m', 'p', '4', 'v'), fps_value, cv::Size(width_value, height_value), true)) {
@@ -178,6 +179,7 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
     [move_file_up setEnabled:YES];
     [move_file_down setEnabled:YES];
     [stretch_video setEnabled:YES];
+    [clear_button setEnabled:YES];
 }
 
 @end
