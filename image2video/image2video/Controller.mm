@@ -53,8 +53,8 @@ void scanDirectories(std::string dir_path, std::string regex, int mode, std::vec
         [panel setAllowsOtherFileTypes:NO];
         [self setQuitLoop:NO];
         if([panel runModal]) {
+            [scan_window orderOut:self];
             NSString *fileName = [[panel URL] path];
-            NSLog(@"Write to file: %@\n", fileName);
             [add_files setEnabled:NO];
             [remove_file setEnabled:NO];
             [move_file_up setEnabled:NO];
@@ -208,6 +208,7 @@ void scanDirectories(std::string dir_path, std::string regex, int mode, std::vec
     [stretch_video setEnabled:YES];
     [clear_button setEnabled:YES];
     [scan_button setEnabled:YES];
+    [build_video setTitle:@"Build"];
 }
 
 - (IBAction) radioClicked: (id) sender {
