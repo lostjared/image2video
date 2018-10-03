@@ -77,7 +77,7 @@ void scanDirectories(std::string dir_path, std::string regex, int mode, std::vec
                 for(NSInteger i = 0; i < [self.table_controller.file_values count]; ++i) {
                     if([self quitLoop] == YES) {
                         dispatch_sync(dispatch_get_main_queue(), ^{
-                            [self flushToLog: @"Stopping...\n"];;
+                            [self flushToLog: @"Stopped processing video...\n"];;
                         });
                         return;
                     }
