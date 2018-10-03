@@ -8,8 +8,15 @@
 #include<cstdlib>
 #include<cmath>
 #include<iostream>
+#include<regex>
+#include<vector>
+#include<string>
+#include<dirent.h>
+#include<sys/types.h>
+#include<sys/stat.h>
 
 cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, const cv::Scalar &bgcolor);
+void scanDirectories(std::string dir_path, std::string regex, int mode, std::vector<std::string> &paths);
 
 @implementation Controller
 
@@ -207,6 +214,32 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
     
 }
 
+- (IBAction) scanDirectories: (id) sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseFiles:NO];
+    [panel setCanChooseDirectories:YES];
+    [panel setAllowsMultipleSelection:NO];
+    if([panel runModal]) {
+        NSString *s = [[panel URL] path];
+        NSString *r = [reg_text stringValue];
+        std::vector<std::string> vfound;
+        int mode = 0;
+        if([radio_match integerValue] == NSOnState)
+            mode = 0;
+        else if([radio_search integerValue] == NSOnState)
+            mode = 1;
+        
+        scanDirectories([s UTF8String], [r UTF8String], mode, vfound);
+        if(vfound.size()>0) {
+            for(int i = 0; i < vfound.size(); ++i) {
+                NSString *str = [NSString stringWithUTF8String: vfound[i].c_str()];
+                [self.table_controller.file_values addObject: str];
+            }
+            [table_view reloadData];
+        }
+    }
+}
+
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3) {
@@ -235,3 +268,35 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
     return output;
 }
 
+void scanDirectories(std::string path, std::string regex_str, int mode, std::vector<std::string> &files) {
+    DIR *dir = opendir(path.c_str());
+    if(dir == NULL) {
+        std::cerr << "Error could not open directory: " << path << "\n";
+        return;
+    }
+    dirent *file_info;
+    while( (file_info = readdir(dir)) != 0 ) {
+        std::string f_info = file_info->d_name;
+        if(f_info == "." || f_info == "..")  continue;
+        std::string fullpath=path+"/"+f_info;
+        struct stat s;
+        lstat(fullpath.c_str(), &s);
+        if(S_ISDIR(s.st_mode)) {
+            if(f_info.length()>0 && f_info[0] != '.')
+                scanDirectories(path+"/"+f_info,regex_str,mode,files);
+            continue;
+        }
+        if(f_info.length()>0 && f_info[0] != '.') {
+            std::regex r(regex_str);
+            bool is_valid;
+            if(mode == 0)
+            	is_valid = std::regex_match(f_info, r);
+            else
+                is_valid = std::regex_search(f_info, r);
+            
+            if(is_valid)
+            	files.push_back(fullpath);
+        }
+    }
+    closedir(dir);
+}

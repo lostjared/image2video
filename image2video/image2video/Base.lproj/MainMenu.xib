@@ -30,6 +30,7 @@
                 <outlet property="move_file_up" destination="chd-3L-Jty" id="8Gh-TB-VBs"/>
                 <outlet property="radio_match" destination="BuE-cq-6aK" id="dAr-6u-3ys"/>
                 <outlet property="radio_search" destination="Cvr-83-bH7" id="IdD-Um-c2l"/>
+                <outlet property="reg_text" destination="aig-Rp-uIg" id="CE1-qM-ioC"/>
                 <outlet property="remove_file" destination="Tur-xf-qhV" id="tqS-7g-Lan"/>
                 <outlet property="scan_button" destination="wws-tt-gBy" id="V8O-Kc-5ZF"/>
                 <outlet property="scan_window" destination="oEM-Ot-xLn" id="BYM-C6-UA8"/>
@@ -418,13 +419,16 @@
                     <button verticalHuggingPriority="750" misplaced="YES" id="uit-rC-4P2">
                         <rect key="frame" x="385" y="13" width="89" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="s9H-GH-BLP">
+                        <buttonCell key="cell" type="push" title="Scan" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="s9H-GH-BLP">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="scanDirectories:" target="HaW-5U-qvL" id="t1C-50-h0K"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="DaH-6f-SVb">
-                        <rect key="frame" x="24" y="22" width="277" height="17"/>
+                        <rect key="frame" x="18" y="23" width="277" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Recursively Search Subdirectories" id="2th-OQ-8IW">
                             <font key="font" metaFont="system"/>

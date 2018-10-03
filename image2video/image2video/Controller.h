@@ -7,7 +7,7 @@
     IBOutlet NSButton *radio_search, *radio_match;
     IBOutlet NSTableView *table_view;
     IBOutlet NSTextView  *text_log;
-    IBOutlet NSTextField *field_fps, *field_w, *field_h;
+    IBOutlet NSTextField *field_fps, *field_w, *field_h, *reg_text;
     IBOutlet NSWindow *scan_window;
     double fps_value, width_value, height_value;
 }
@@ -25,6 +25,7 @@
 - (void) flushToLog: (NSString*) str;
 - (void) enableControls;
 - (IBAction) radioClicked: (id) sender;
+- (IBAction) scanDirectories: (id) sender;
 
 @end
 
