@@ -28,6 +28,8 @@
                 <outlet property="field_w" destination="kwk-CY-NwX" id="wfh-UY-MVO"/>
                 <outlet property="move_file_down" destination="dE9-UJ-Nvn" id="Zdf-S8-OzG"/>
                 <outlet property="move_file_up" destination="chd-3L-Jty" id="8Gh-TB-VBs"/>
+                <outlet property="radio_match" destination="BuE-cq-6aK" id="dAr-6u-3ys"/>
+                <outlet property="radio_search" destination="Cvr-83-bH7" id="IdD-Um-c2l"/>
                 <outlet property="remove_file" destination="Tur-xf-qhV" id="tqS-7g-Lan"/>
                 <outlet property="scan_button" destination="wws-tt-gBy" id="V8O-Kc-5ZF"/>
                 <outlet property="scan_window" destination="oEM-Ot-xLn" id="BYM-C6-UA8"/>
@@ -367,13 +369,72 @@
         <window title="Scan Directories" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="oEM-Ot-xLn">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="305" width="480" height="270"/>
+            <rect key="contentRect" x="283" y="305" width="480" height="86"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
-            <view key="contentView" id="oWu-cx-6RX">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+            <view key="contentView" misplaced="YES" id="oWu-cx-6RX">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="86"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="OuD-85-KpC">
+                        <rect key="frame" x="18" y="49" width="124" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Regular Expression:" id="Jga-ys-MIC">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" misplaced="YES" id="aig-Rp-uIg">
+                        <rect key="frame" x="148" y="47" width="177" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="GBg-ml-cCQ">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="BuE-cq-6aK">
+                        <rect key="frame" x="332" y="49" width="60" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Match" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="xrS-64-hOA">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="radioClicked:" target="HaW-5U-qvL" id="TXM-f0-cj4"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="Cvr-83-bH7">
+                        <rect key="frame" x="397" y="49" width="65" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="Search" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="EVQ-1T-ESx">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="radioClicked:" target="HaW-5U-qvL" id="rAD-wT-Nrf"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="uit-rC-4P2">
+                        <rect key="frame" x="385" y="13" width="89" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="s9H-GH-BLP">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="DaH-6f-SVb">
+                        <rect key="frame" x="24" y="22" width="277" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Recursively Search Subdirectories" id="2th-OQ-8IW">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
             </view>
-            <point key="canvasLocation" x="648" y="53"/>
+            <point key="canvasLocation" x="610" y="-190"/>
         </window>
     </objects>
 </document>

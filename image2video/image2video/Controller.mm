@@ -203,6 +203,10 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
     [scan_button setEnabled:YES];
 }
 
+- (IBAction) radioClicked: (id) sender {
+    
+}
+
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3) {

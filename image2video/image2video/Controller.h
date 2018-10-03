@@ -4,6 +4,7 @@
 
 @interface Controller : NSObject {
     IBOutlet NSButton *add_files, *remove_file, *move_file_up, *move_file_down, *build_video, *stretch_video, *clear_button, *scan_button;
+    IBOutlet NSButton *radio_search, *radio_match;
     IBOutlet NSTableView *table_view;
     IBOutlet NSTextView  *text_log;
     IBOutlet NSTextField *field_fps, *field_w, *field_h;
@@ -23,6 +24,7 @@
 - (IBAction) scanDir: (id) sender;
 - (void) flushToLog: (NSString*) str;
 - (void) enableControls;
+- (IBAction) radioClicked: (id) sender;
 
 @end
 
