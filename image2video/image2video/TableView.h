@@ -2,7 +2,6 @@
 #import<Cocoa/Cocoa.h>
 
 @interface TableController : NSObject<NSTableViewDataSource, NSTableViewDelegate> {
-     //NSMutableArray *file_values;
 }
 
 @property (readwrite) NSMutableArray *file_values;

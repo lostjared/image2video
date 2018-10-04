@@ -248,7 +248,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                 }
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     [scan_ setEnabled:YES];
-                	[table_view_ reloadData];
+                    [table_view_ reloadData];
                     [scan_prog stopAnimation:self];
                 });
             }
