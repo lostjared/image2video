@@ -174,12 +174,14 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
 - (IBAction) moveUp: (id) sender {
     NSInteger index = [table_view selectedRow];
     [table_controller moveUp:index];
+    [table_view deselectAll:self];
     [table_view reloadData];
 }
 
 - (IBAction) moveDown: (id) sender {
     NSInteger index = [table_view selectedRow];
     [table_controller moveDown: index];
+    [table_view deselectAll:self];
     [table_view reloadData];
 }
 
@@ -254,6 +256,10 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
             }
         });
     }
+}
+
+- (IBAction) showExtractWindow: (id) sender {
+    [extract_win orderFront:self];
 }
 
 @end

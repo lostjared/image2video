@@ -10,6 +10,9 @@
     IBOutlet NSTextField *field_fps, *field_w, *field_h, *reg_text;
     IBOutlet NSWindow *scan_window;
     IBOutlet NSProgressIndicator *scan_progress;
+    IBOutlet NSWindow *extract_win;
+    IBOutlet NSTextField *extract_filename_label, *extract_prefix;
+    IBOutlet NSButton *extract_select, *extract_output, *extract_show;
     double fps_value, width_value, height_value;
 }
 
@@ -27,7 +30,7 @@
 - (void) enableControls;
 - (IBAction) radioClicked: (id) sender;
 - (IBAction) scanDirectories: (id) sender;
-
+- (IBAction) showExtractWindow: (id) sender;
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3);
