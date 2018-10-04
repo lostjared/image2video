@@ -33,6 +33,8 @@
                 <outlet property="reg_text" destination="aig-Rp-uIg" id="CE1-qM-ioC"/>
                 <outlet property="remove_file" destination="Tur-xf-qhV" id="tqS-7g-Lan"/>
                 <outlet property="scan_button" destination="wws-tt-gBy" id="V8O-Kc-5ZF"/>
+                <outlet property="scan_dir_button" destination="uit-rC-4P2" id="K7Q-fA-2hq"/>
+                <outlet property="scan_progress" destination="mc5-oR-J6v" id="A1t-OS-Kny"/>
                 <outlet property="scan_window" destination="oEM-Ot-xLn" id="BYM-C6-UA8"/>
                 <outlet property="stretch_video" destination="CU5-Ln-u9F" id="vFA-bC-u55"/>
                 <outlet property="table_view" destination="tjU-68-SVy" id="4LF-s5-Ljc"/>
@@ -436,6 +438,10 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="mc5-oR-J6v">
+                        <rect key="frame" x="367" y="23" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </progressIndicator>
                 </subviews>
             </view>
             <point key="canvasLocation" x="610" y="-190"/>

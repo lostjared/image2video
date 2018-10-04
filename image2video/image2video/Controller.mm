@@ -16,7 +16,7 @@
 #include<sys/stat.h>
 
 cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, const cv::Scalar &bgcolor);
-void scanDirectories(std::string dir_path, std::string regex, int mode, std::vector<std::string> &paths);
+void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std::vector<std::string> &paths);
 
 @implementation Controller
 
@@ -216,28 +216,43 @@ void scanDirectories(std::string dir_path, std::string regex, int mode, std::vec
 }
 
 - (IBAction) scanDirectories: (id) sender {
+    NSString *r = [reg_text stringValue];
+    if([r length] <= 0) {
+        _NSRunAlertPanel(@"Error requires Regular Expression", @"You need to put a Regular Expression in the text box", @"Ok", nil, nil);
+        return;
+    }
     NSOpenPanel *panel = [NSOpenPanel openPanel];
     [panel setCanChooseFiles:NO];
     [panel setCanChooseDirectories:YES];
     [panel setAllowsMultipleSelection:NO];
     if([panel runModal]) {
+        [scan_button setEnabled:NO];
         NSString *s = [[panel URL] path];
-        NSString *r = [reg_text stringValue];
-        std::vector<std::string> vfound;
         int mode = 0;
         if([radio_match integerValue] == NSOnState)
             mode = 0;
         else if([radio_search integerValue] == NSOnState)
             mode = 1;
-        
-        scanDirectories([s UTF8String], [r UTF8String], mode, vfound);
-        if(vfound.size()>0) {
-            for(int i = 0; i < vfound.size(); ++i) {
-                NSString *str = [NSString stringWithUTF8String: vfound[i].c_str()];
-                [self.table_controller.file_values addObject: str];
+        [scan_dir_button setEnabled:NO];
+        [scan_progress startAnimation:self];
+        NSButton *scan_ = scan_dir_button;
+        NSTableView *table_view_ = table_view;
+        NSProgressIndicator *scan_prog = scan_progress;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            std::vector<std::string> vfound;
+            scanDirectoriesRegEx([s UTF8String], [r UTF8String], mode, vfound);
+            if(vfound.size()>0) {
+                for(int i = 0; i < vfound.size(); ++i) {
+                    NSString *str = [NSString stringWithUTF8String: vfound[i].c_str()];
+                    [self.table_controller.file_values addObject: str];
+                }
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [scan_ setEnabled:YES];
+                	[table_view_ reloadData];
+                    [scan_prog stopAnimation:self];
+                });
             }
-            [table_view reloadData];
-        }
+        });
     }
 }
 
@@ -269,7 +284,7 @@ cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, con
     return output;
 }
 
-void scanDirectories(std::string path, std::string regex_str, int mode, std::vector<std::string> &files) {
+void scanDirectoriesRegEx(std::string path, std::string regex_str, int mode, std::vector<std::string> &files) {
     DIR *dir = opendir(path.c_str());
     if(dir == NULL) {
         std::cerr << "Error could not open directory: " << path << "\n";
@@ -284,19 +299,19 @@ void scanDirectories(std::string path, std::string regex_str, int mode, std::vec
         lstat(fullpath.c_str(), &s);
         if(S_ISDIR(s.st_mode)) {
             if(f_info.length()>0 && f_info[0] != '.')
-                scanDirectories(path+"/"+f_info,regex_str,mode,files);
+                scanDirectoriesRegEx(path+"/"+f_info,regex_str,mode,files);
             continue;
         }
         if(f_info.length()>0 && f_info[0] != '.') {
             std::regex r(regex_str);
             bool is_valid;
             if(mode == 0)
-            	is_valid = std::regex_match(f_info, r);
+                is_valid = std::regex_match(f_info, r);
             else
                 is_valid = std::regex_search(f_info, r);
             
             if(is_valid)
-            	files.push_back(fullpath);
+                files.push_back(fullpath);
         }
     }
     closedir(dir);
