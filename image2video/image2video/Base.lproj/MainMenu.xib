@@ -43,7 +43,7 @@
                 <outlet property="scan_progress" destination="mc5-oR-J6v" id="A1t-OS-Kny"/>
                 <outlet property="scan_window" destination="oEM-Ot-xLn" id="BYM-C6-UA8"/>
                 <outlet property="stretch_video" destination="CU5-Ln-u9F" id="vFA-bC-u55"/>
-                <outlet property="table_view" destination="tjU-68-SVy" id="4LF-s5-Ljc"/>
+                <outlet property="table_view" destination="tjU-68-SVy" id="eRm-ai-Dgu"/>
                 <outlet property="text_log" destination="O5u-92-spW" id="xlD-pZ-eAg"/>
             </connections>
         </customObject>
@@ -282,7 +282,7 @@
                             <rect key="frame" x="1" y="0.0" width="879" height="295"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="XYT-n7-FU6" id="tjU-68-SVy">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="XYT-n7-FU6" id="tjU-68-SVy" customClass="TableView">
                                     <rect key="frame" x="0.0" y="0.0" width="879" height="272"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>

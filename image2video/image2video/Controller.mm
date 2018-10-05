@@ -1,8 +1,6 @@
 
-#include<opencv2/videoio.hpp>
-#include<opencv2/imgproc.hpp>
-#include<opencv2/highgui.hpp>
 
+#include"CV.hpp"
 #import "Controller.h"
 #include<cstdio>
 #include<cstdlib>
@@ -15,7 +13,7 @@
 #include<sys/types.h>
 #include<sys/stat.h>
 
-cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, const cv::Scalar &bgcolor);
+
 void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std::vector<std::string> &paths);
 
 @implementation Controller
@@ -33,6 +31,9 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
 }
 
 - (IBAction) buildVideo: (id) sender {
+    
+    cv::destroyWindow("image2video");
+    
     if([[build_video title] isEqualToString:@"Stop"]) {
         [self setQuitLoop: YES];
         [build_video setTitle:@"Build"];
@@ -152,7 +153,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
     [panel setCanChooseFiles:YES];
     [panel setAllowsMultipleSelection:YES];
     [panel setCanChooseDirectories:NO];
-    [panel setAllowedFileTypes: [NSArray arrayWithObjects: @"png", @"jpg", @"bmp", nil]];
+    [panel setAllowedFileTypes: [NSArray arrayWithObjects: @"bmp",@"dib",@"png",@"jpg",@"pbm", @"pgm", @"ppm", @"sr", @"ras", @"tiff", nil]];
     if([panel runModal]) {
         NSInteger count = [[panel URLs] count];
         for(NSInteger i = 0; i < count; ++i) {
@@ -272,22 +273,6 @@ NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NS
     if(msg2 != nil) [alert setInformativeText:msg2];
     NSInteger rt_val = [alert runModal];
     return rt_val;
-}
-
-cv::Mat resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize, const cv::Scalar &bgcolor) {
-    cv::Mat output;
-    double h1 = dstSize.width * (input.rows/(double)input.cols);
-    double w2 = dstSize.height * (input.cols/(double)input.rows);
-    if(h1 <= dstSize.height)
-        cv::resize(input, output, cv::Size(dstSize.width, h1));
-    else
-        cv::resize(input, output, cv::Size(w2, dstSize.height));
-    int top = (dstSize.height-output.rows)/2;
-    int down = (dstSize.height-output.rows+1)/2;
-    int left = (dstSize.width - output.cols)/2;
-    int right = (dstSize.width - output.cols+1)/2;
-    cv::copyMakeBorder(output, output, top, down, left, right, cv::BORDER_CONSTANT, bgcolor);
-    return output;
 }
 
 void scanDirectoriesRegEx(std::string path, std::string regex_str, int mode, std::vector<std::string> &files) {

@@ -47,6 +47,7 @@
 		7F74E58121616CFB008508B7 /* libcblas.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E58021616CFB008508B7 /* libcblas.tbd */; };
 		7F74E58321616E54008508B7 /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E58221616E54008508B7 /* VideoDecodeAcceleration.framework */; };
 		7FB6802F2162D5C000362EE3 /* reel.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6802E2162D5C000362EE3 /* reel.icns */; };
+		7FB680322166E04F00362EE3 /* CV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FB680312166E04F00362EE3 /* CV.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,8 @@
 		7F74E58021616CFB008508B7 /* libcblas.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcblas.tbd; path = usr/lib/libcblas.tbd; sourceTree = SDKROOT; };
 		7F74E58221616E54008508B7 /* VideoDecodeAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoDecodeAcceleration.framework; path = System/Library/Frameworks/VideoDecodeAcceleration.framework; sourceTree = SDKROOT; };
 		7FB6802E2162D5C000362EE3 /* reel.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = reel.icns; sourceTree = "<group>"; };
+		7FB680302166E04F00362EE3 /* CV.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CV.hpp; sourceTree = "<group>"; };
+		7FB680312166E04F00362EE3 /* CV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CV.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 		7F74E52621616313008508B7 /* image2video */ = {
 			isa = PBXGroup;
 			children = (
+				7FB680312166E04F00362EE3 /* CV.cpp */,
+				7FB680302166E04F00362EE3 /* CV.hpp */,
 				7F6C3D612161C9F8003EF821 /* TableView.h */,
 				7F6C3D622161C9F8003EF821 /* TableView.mm */,
 				7F74E57821616461008508B7 /* Controller.h */,
@@ -300,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB680322166E04F00362EE3 /* CV.cpp in Sources */,
 				7F74E53121616313008508B7 /* main.m in Sources */,
 				7F74E52921616313008508B7 /* AppDelegate.m in Sources */,
 				7F74E57921616461008508B7 /* Controller.mm in Sources */,
