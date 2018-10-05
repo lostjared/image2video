@@ -19,6 +19,7 @@
 
 @property (readwrite) TableController *table_controller;
 @property (readwrite) BOOL quitLoop;
+@property (readwrite) BOOL quitExtractLoop;
 - (IBAction) buildVideo: (id) sender;
 - (BOOL) checkInput: (double *)fps width:(double *)w height:(double *)h;
 - (IBAction) addFiles: (id) sender;

@@ -9,6 +9,7 @@
 #include<regex>
 #include<vector>
 #include<string>
+#include<sstream>
 #include<dirent.h>
 #include<sys/types.h>
 #include<sys/stat.h>
@@ -20,6 +21,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
 
 @synthesize table_controller;
 @synthesize quitLoop;
+@synthesize quitExtractLoop;
 
 - (void)awakeFromNib {
     table_controller = [[TableController alloc] init];
@@ -28,6 +30,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
     [table_view setDataSource:table_controller];
     [table_view reloadData];
     quitLoop = NO;
+    quitExtractLoop = NO;
 }
 
 - (IBAction) buildVideo: (id) sender {
@@ -66,6 +69,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
             [scan_button setEnabled:NO];
             [build_video setTitle:@"Stop"];
             [extract_show setEnabled:NO];
+            [extract_output setEnabled:NO];
             quitLoop = NO;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
                 cv::VideoWriter writer;
@@ -216,6 +220,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
     [scan_button setEnabled:YES];
     [build_video setTitle:@"Build"];
     [extract_show setEnabled:YES];
+    [extract_output setEnabled:YES];
 }
 
 - (IBAction) radioClicked: (id) sender {
@@ -290,9 +295,76 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
 }
 
 - (IBAction) extractFile: (id) sender {
-    NSString *fileName = [extract_filename_label stringValue];
-    if([fileName length] > 0) {
+    
+    if([[extract_prefix stringValue] length] <= 0) {
+        _NSRunAlertPanel(@"Error requires filename prefix", @"FIll in the Textbox", @"Ok", nil, nil);
+        return;
+    }
+    
+    if ([[extract_output title] isEqualToString:@"Extract Frames"]) {
         
+        NSString *fileName = [extract_filename_label stringValue];
+        NSString *prefix = [extract_prefix stringValue];
+        NSOpenPanel *panel = [NSOpenPanel openPanel];
+        [panel setCanCreateDirectories:YES];
+        [panel setCanChooseDirectories:YES];
+        [panel setCanChooseFiles:NO];
+        NSString *dir_output = nil;
+        if([panel runModal]) {
+            dir_output = [[panel URL] path];
+        } else
+            return;
+        if([fileName length] > 0) {
+            [extract_output setTitle:@"Stop"];
+            [build_video setEnabled:NO];
+            NSButton *e_output = extract_output;
+            NSButton *b_output = build_video;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                cv::VideoCapture cap([fileName UTF8String]);
+                if(!cap.isOpened()) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        _NSRunAlertPanel(@"Could not open file", @"Error could not open file", @"Ok", nil, nil);
+                        return;
+                    });
+                }
+                cv::Mat frame;
+                long count = (long) cap.get(CV_CAP_PROP_FRAME_COUNT);
+                long image_index = 0;
+                std::ostringstream stream;
+                stream << count;
+                long stream_count = stream.str().length();
+                while(cap.read(frame)) {
+                    std::ostringstream index;
+                    index.width(stream_count+1);
+                    index.fill('0');
+                    index << image_index << "\n";
+                    NSString *file_output = [NSString stringWithFormat:@"%@/%@_%s.png", dir_output,prefix,index.str().c_str()];
+                    cv::imwrite([file_output UTF8String], frame);
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        [self flushToLog: [NSString stringWithFormat:@"Extraction Wrote file: %@ [%ld/%ld]\n", file_output, (image_index+1),count]];
+                    });
+                    ++image_index;
+                    if([self quitExtractLoop] == YES) {
+                        dispatch_sync(dispatch_get_main_queue(), ^{
+                            [e_output setTitle:@"Extract Frames"];
+                            [self flushToLog:@"Stopped Extraction Loop"];
+                            [self setQuitExtractLoop:NO];
+                        });
+                        return;
+                    }
+                }
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [e_output setTitle:@"Extract Frames"];
+                    [b_output setEnabled:YES];
+                });
+                
+            });
+        } else {
+            _NSRunAlertPanel(@"Please select directory to output files to...\n", @"Select Directory", @"Ok", nil, nil);
+            return;
+        }
+    } else {
+        [self setQuitExtractLoop:YES];
     }
 }
 
