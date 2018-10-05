@@ -55,6 +55,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
         [self setQuitLoop:NO];
         if([panel runModal]) {
             [scan_window orderOut:self];
+            [extract_win orderOut:self];
             NSString *fileName = [[panel URL] path];
             [add_files setEnabled:NO];
             [remove_file setEnabled:NO];
@@ -64,6 +65,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
             [clear_button setEnabled:NO];
             [scan_button setEnabled:NO];
             [build_video setTitle:@"Stop"];
+            [extract_show setEnabled:NO];
             quitLoop = NO;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
                 cv::VideoWriter writer;
@@ -78,7 +80,8 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                 for(NSInteger i = 0; i < [self.table_controller.file_values count]; ++i) {
                     if([self quitLoop] == YES) {
                         dispatch_sync(dispatch_get_main_queue(), ^{
-                            [self flushToLog: @"Stopped processing video...\n"];;
+                            [self flushToLog: @"Stopped processing video...\n"];
+                            [self enableControls];
                         });
                         return;
                     }
@@ -212,6 +215,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
     [clear_button setEnabled:YES];
     [scan_button setEnabled:YES];
     [build_video setTitle:@"Build"];
+    [extract_show setEnabled:YES];
 }
 
 - (IBAction) radioClicked: (id) sender {
@@ -274,11 +278,22 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
 }
 
 - (IBAction) extractSelectFile: (id) sender {
-    
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseFiles:YES];
+    [panel setCanChooseDirectories:NO];
+    [panel setAllowsMultipleSelection:NO];
+    [panel setAllowedFileTypes: [NSArray arrayWithObjects:@"mov", @"avi", @"mp4", @"mkv",nil]];
+    if([panel runModal]) {
+        NSString *s = [[panel URL] path];
+        [extract_filename_label setStringValue:s];
+    }
 }
 
 - (IBAction) extractFile: (id) sender {
-    
+    NSString *fileName = [extract_filename_label stringValue];
+    if([fileName length] > 0) {
+        
+    }
 }
 
 @end
