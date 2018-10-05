@@ -13,6 +13,7 @@
     IBOutlet NSWindow *extract_win;
     IBOutlet NSTextField *extract_filename_label, *extract_prefix;
     IBOutlet NSButton *extract_select, *extract_output, *extract_show;
+    IBOutlet NSMenuItem *menu_select;
     double fps_value, width_value, height_value;
 }
 
@@ -31,6 +32,7 @@
 - (IBAction) radioClicked: (id) sender;
 - (IBAction) scanDirectories: (id) sender;
 - (IBAction) showExtractWindow: (id) sender;
+- (IBAction) setShowImage:(id) sender;
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3);

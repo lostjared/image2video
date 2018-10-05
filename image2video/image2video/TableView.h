@@ -18,4 +18,6 @@
     
 }
 
+@property (readwrite) BOOL imageShown;
+
 @end

@@ -23,10 +23,6 @@
     return @"";
 }
 
-- (void)tableView:(NSTableView *)tableView didClickedRow:(NSInteger)row {
-    
-}
-
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
     return [file_values count];
 }
@@ -76,12 +72,18 @@
 
 @implementation TableView
 
+@synthesize imageShown;
+
+- (void) awakeFromNib {
+    imageShown = YES;
+}
+
 - (void)mouseDown:(NSEvent *)event {
     NSPoint location = [event locationInWindow];
     NSPoint local = [self convertPoint:location fromView:nil];
     NSInteger clicked = [self rowAtPoint:local];
     [super mouseDown:event];
-    if(clicked != -1) {
+    if(clicked != -1 && imageShown == YES) {
         id dl = [self delegate];
         [dl showImage:clicked];
     }

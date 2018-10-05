@@ -263,6 +263,16 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
     [extract_win orderFront:self];
 }
 
+- (IBAction) setShowImage:(id) sender {
+    if([menu_select state] == NSOnState) {
+        [menu_select setState:NSOffState];
+        [table_view setImageShown:NO];
+    } else {
+        [menu_select setState:NSOnState];
+        [table_view setImageShown:YES];
+    }
+}
+
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3) {

@@ -32,6 +32,7 @@
                 <outlet property="field_fps" destination="oO5-pc-Nvz" id="Ykq-u9-Ljg"/>
                 <outlet property="field_h" destination="SgJ-3Z-brX" id="2dh-YI-Qu6"/>
                 <outlet property="field_w" destination="kwk-CY-NwX" id="wfh-UY-MVO"/>
+                <outlet property="menu_select" destination="Qi7-st-YYw" id="Syp-v6-RtT"/>
                 <outlet property="move_file_down" destination="dE9-UJ-Nvn" id="Zdf-S8-OzG"/>
                 <outlet property="move_file_up" destination="chd-3L-Jty" id="8Gh-TB-VBs"/>
                 <outlet property="radio_match" destination="BuE-cq-6aK" id="dAr-6u-3ys"/>
@@ -94,9 +95,9 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="File" id="dMs-cI-mzQ">
+                <menuItem title="Actions" id="dMs-cI-mzQ">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="File" id="bib-Uj-vzu">
+                    <menu key="submenu" title="Actions" id="bib-Uj-vzu">
                         <items>
                             <menuItem title="Clear" keyEquivalent="c" id="Was-JA-tGl">
                                 <connections>
@@ -108,9 +109,33 @@
                                     <action selector="addFiles:" target="HaW-5U-qvL" id="lBV-jP-W8c"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="XUk-Z8-drU"/>
                             <menuItem title="Build" keyEquivalent="b" id="VsW-mO-shg">
                                 <connections>
                                     <action selector="buildVideo:" target="HaW-5U-qvL" id="wDE-B8-2Io"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Scan" keyEquivalent="s" id="JAD-dA-RVE">
+                                <connections>
+                                    <action selector="scanDir:" target="HaW-5U-qvL" id="o1P-4s-k02"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Extract" keyEquivalent="e" id="CBE-GI-0w8">
+                                <connections>
+                                    <action selector="showExtractWindow:" target="HaW-5U-qvL" id="iSC-Oo-NG0"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Options" id="TJm-cZ-ES3">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Options" id="xi9-jE-hkk">
+                        <items>
+                            <menuItem title="Show Images" state="on" id="Qi7-st-YYw">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="setShowImage:" target="HaW-5U-qvL" id="iXs-gW-se7"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -147,7 +172,7 @@
         <window title="image2video" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="922" height="610"/>
+            <rect key="contentRect" x="747" y="246" width="922" height="610"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="922" height="610"/>
@@ -384,12 +409,12 @@
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-127" y="83"/>
+            <point key="canvasLocation" x="-147" y="214"/>
         </window>
         <window title="Scan Directories" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="oEM-Ot-xLn">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="305" width="480" height="86"/>
+            <rect key="contentRect" x="265" y="125" width="480" height="86"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" misplaced="YES" id="oWu-cx-6RX">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="86"/>
@@ -465,8 +490,8 @@
         </window>
         <window title="Extract Frames" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="6gE-b5-Kg2">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="283" y="305" width="483" height="88"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES"/>
+            <rect key="contentRect" x="909" y="179" width="483" height="88"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" misplaced="YES" id="9v3-Ru-iWX">
                 <rect key="frame" x="0.0" y="0.0" width="483" height="88"/>
