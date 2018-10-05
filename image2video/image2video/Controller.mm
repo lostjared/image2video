@@ -337,8 +337,8 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                     std::ostringstream index;
                     index.width(stream_count+1);
                     index.fill('0');
-                    index << image_index << "\n";
-                    NSString *file_output = [NSString stringWithFormat:@"%@/%@_%s.png", dir_output,prefix,index.str().c_str()];
+                    index << image_index+1;
+                    NSString *file_output = [NSString stringWithFormat:@"%@/%@.%s.png", dir_output,prefix,index.str().c_str()];
                     cv::imwrite([file_output UTF8String], frame);
                     dispatch_sync(dispatch_get_main_queue(), ^{
                         [self flushToLog: [NSString stringWithFormat:@"Extraction Wrote file: %@ [%ld/%ld]\n", file_output, (image_index+1),count]];
