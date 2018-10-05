@@ -76,14 +76,14 @@
 
 @implementation TableView
 
-- (void)mouseDown:(NSEvent *)theEvent {
-    NSPoint globalLocation = [theEvent locationInWindow];
-    NSPoint localLocation = [self convertPoint:globalLocation fromView:nil];
-    NSInteger clickedRow = [self rowAtPoint:localLocation];
-    [super mouseDown:theEvent];
-    if(clickedRow != -1) {
+- (void)mouseDown:(NSEvent *)event {
+    NSPoint location = [event locationInWindow];
+    NSPoint local = [self convertPoint:location fromView:nil];
+    NSInteger clicked = [self rowAtPoint:local];
+    [super mouseDown:event];
+    if(clicked != -1) {
         id dl = [self delegate];
-        [dl showImage:clickedRow];
+        [dl showImage:clicked];
     }
 }
 
