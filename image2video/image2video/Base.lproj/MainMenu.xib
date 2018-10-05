@@ -522,6 +522,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="extractSelectFile:" target="HaW-5U-qvL" id="4SN-Tp-zjx"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" misplaced="YES" id="c1X-WY-9e0">
                         <rect key="frame" x="352" y="13" width="117" height="32"/>
@@ -530,11 +533,14 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="extractFile:" target="HaW-5U-qvL" id="k5F-xL-nhx"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="h02-ow-TTB">
                         <rect key="frame" x="18" y="22" width="334" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Selected Filename" id="qfl-Z1-ZGW">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="qfl-Z1-ZGW">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

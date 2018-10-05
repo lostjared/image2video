@@ -33,6 +33,8 @@
 - (IBAction) scanDirectories: (id) sender;
 - (IBAction) showExtractWindow: (id) sender;
 - (IBAction) setShowImage:(id) sender;
+- (IBAction) extractSelectFile: (id) sender;
+- (IBAction) extractFile: (id) sender;
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3);
