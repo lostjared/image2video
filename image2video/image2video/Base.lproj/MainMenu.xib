@@ -26,6 +26,7 @@
                 <outlet property="extract_filename_label" destination="h02-ow-TTB" id="fda-I5-5g5"/>
                 <outlet property="extract_output" destination="c1X-WY-9e0" id="K9L-BX-Oaf"/>
                 <outlet property="extract_prefix" destination="Y3q-la-VGu" id="g04-M8-SKa"/>
+                <outlet property="extract_progress" destination="CaC-Br-uQl" id="9p9-vH-KRN"/>
                 <outlet property="extract_select" destination="HRO-Xm-ia9" id="4dR-MR-Cg6"/>
                 <outlet property="extract_show" destination="OdS-9Q-Ucy" id="Nbg-O3-8AK"/>
                 <outlet property="extract_win" destination="6gE-b5-Kg2" id="KVJ-sI-hVY"/>
@@ -414,10 +415,10 @@
         <window title="Scan Directories" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="oEM-Ot-xLn">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="265" y="125" width="480" height="86"/>
+            <rect key="contentRect" x="265" y="125" width="488" height="86"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" misplaced="YES" id="oWu-cx-6RX">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="86"/>
+                <rect key="frame" x="0.0" y="0.0" width="488" height="86"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="OuD-85-KpC">
@@ -486,19 +487,19 @@
                     </progressIndicator>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="610" y="-190"/>
+            <point key="canvasLocation" x="614" y="-190"/>
         </window>
         <window title="Extract Frames" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="6gE-b5-Kg2">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES"/>
-            <rect key="contentRect" x="909" y="179" width="483" height="88"/>
+            <rect key="contentRect" x="909" y="179" width="509" height="81"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" misplaced="YES" id="9v3-Ru-iWX">
-                <rect key="frame" x="0.0" y="0.0" width="483" height="88"/>
+                <rect key="frame" x="0.0" y="0.0" width="509" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" misplaced="YES" id="Y3q-la-VGu">
-                        <rect key="frame" x="109" y="45" width="241" height="22"/>
+                        <rect key="frame" x="109" y="38" width="267" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="filename_prefix" drawsBackground="YES" id="nt0-RY-tTQ">
                             <font key="font" metaFont="system"/>
@@ -507,7 +508,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="LcT-xP-Vfe">
-                        <rect key="frame" x="18" y="48" width="85" height="17"/>
+                        <rect key="frame" x="18" y="41" width="85" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output Prefix" id="rJL-WL-i2h">
                             <font key="font" metaFont="system"/>
@@ -516,7 +517,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" misplaced="YES" id="HRO-Xm-ia9">
-                        <rect key="frame" x="352" y="39" width="117" height="32"/>
+                        <rect key="frame" x="378" y="31" width="117" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Select Video" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CfX-88-oNJ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -526,8 +527,30 @@
                             <action selector="extractSelectFile:" target="HaW-5U-qvL" id="4SN-Tp-zjx"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="h02-ow-TTB">
+                        <rect key="frame" x="89" y="15" width="263" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="qfl-Z1-ZGW">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="qXf-PE-tQa">
+                        <rect key="frame" x="18" y="15" width="67" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filename:" id="sqH-eC-jC2">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="CaC-Br-uQl">
+                        <rect key="frame" x="360" y="15" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </progressIndicator>
                     <button verticalHuggingPriority="750" misplaced="YES" id="c1X-WY-9e0">
-                        <rect key="frame" x="352" y="13" width="117" height="32"/>
+                        <rect key="frame" x="378" y="6" width="117" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Extract Frames" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tUf-3U-bWv">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -537,27 +560,9 @@
                             <action selector="extractFile:" target="HaW-5U-qvL" id="k5F-xL-nhx"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="h02-ow-TTB">
-                        <rect key="frame" x="89" y="22" width="263" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="qfl-Z1-ZGW">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="qXf-PE-tQa">
-                        <rect key="frame" x="18" y="22" width="67" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filename:" id="sqH-eC-jC2">
-                            <font key="font" metaFont="systemBold"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="614.5" y="-53"/>
+            <point key="canvasLocation" x="625" y="-34"/>
         </window>
     </objects>
 </document>

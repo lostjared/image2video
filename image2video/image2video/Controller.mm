@@ -295,12 +295,10 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
 }
 
 - (IBAction) extractFile: (id) sender {
-    
     if([[extract_prefix stringValue] length] <= 0) {
         _NSRunAlertPanel(@"Error requires filename prefix", @"FIll in the Textbox", @"Ok", nil, nil);
         return;
     }
-    
     if ([[extract_output title] isEqualToString:@"Extract Frames"]) {
         
         NSString *fileName = [extract_filename_label stringValue];
@@ -319,11 +317,14 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
             [build_video setEnabled:NO];
             NSButton *e_output = extract_output;
             NSButton *b_output = build_video;
+            NSProgressIndicator *extract_prog = extract_progress;
+            [extract_progress startAnimation:self];
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
                 cv::VideoCapture cap([fileName UTF8String]);
                 if(!cap.isOpened()) {
                     dispatch_sync(dispatch_get_main_queue(), ^{
                         _NSRunAlertPanel(@"Could not open file", @"Error could not open file", @"Ok", nil, nil);
+                        [extract_prog stopAnimation:self];
                         return;
                     });
                 }
@@ -349,6 +350,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                             [e_output setTitle:@"Extract Frames"];
                             [self flushToLog:@"Stopped Extraction Loop"];
                             [self setQuitExtractLoop:NO];
+                            [extract_prog stopAnimation:self];
                         });
                         return;
                     }
@@ -356,6 +358,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     [e_output setTitle:@"Extract Frames"];
                     [b_output setEnabled:YES];
+                    [extract_prog stopAnimation:self];
                 });
                 
             });

@@ -9,7 +9,7 @@
     IBOutlet NSTextView  *text_log;
     IBOutlet NSTextField *field_fps, *field_w, *field_h, *reg_text;
     IBOutlet NSWindow *scan_window;
-    IBOutlet NSProgressIndicator *scan_progress;
+    IBOutlet NSProgressIndicator *scan_progress, *extract_progress;
     IBOutlet NSWindow *extract_win;
     IBOutlet NSTextField *extract_filename_label, *extract_prefix;
     IBOutlet NSButton *extract_select, *extract_output, *extract_show;
