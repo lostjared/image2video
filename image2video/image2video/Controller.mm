@@ -341,8 +341,15 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                     index << image_index+1;
                     NSString *file_output = [NSString stringWithFormat:@"%@/%@.%s.png", dir_output,prefix,index.str().c_str()];
                     cv::imwrite([file_output UTF8String], frame);
+                    
+                    float val = (float)(image_index+1);
+                    float size = (float)count;
+                    float percent_complete = 0;
+                    if(size != 0)
+                        percent_complete = (val/size)*100;
+                    
                     dispatch_sync(dispatch_get_main_queue(), ^{
-                        [self flushToLog: [NSString stringWithFormat:@"Extraction Wrote file: %@ [%ld/%ld]\n", file_output, (image_index+1),count]];
+                        [self flushToLog: [NSString stringWithFormat:@"Extracting Wrote file: %@ [%ld/%ld] - %ld%%\n", file_output, (image_index+1),count,(long)percent_complete]];
                     });
                     ++image_index;
                     if([self quitExtractLoop] == YES) {
