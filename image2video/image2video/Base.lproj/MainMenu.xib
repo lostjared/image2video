@@ -105,20 +105,27 @@
                                     <action selector="clearList:" target="HaW-5U-qvL" id="vb1-tE-qYf"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="OPE-FL-c5j"/>
+                            <menuItem title="Remove" keyEquivalent="r" id="5MX-jI-SwZ">
+                                <connections>
+                                    <action selector="rmvFiles:" target="HaW-5U-qvL" id="Gvr-Ec-JSq"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Add" keyEquivalent="a" id="IAo-SY-fd9">
                                 <connections>
                                     <action selector="addFiles:" target="HaW-5U-qvL" id="lBV-jP-W8c"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="XUk-Z8-drU"/>
-                            <menuItem title="Build" keyEquivalent="b" id="VsW-mO-shg">
-                                <connections>
-                                    <action selector="buildVideo:" target="HaW-5U-qvL" id="wDE-B8-2Io"/>
-                                </connections>
-                            </menuItem>
                             <menuItem title="Scan" keyEquivalent="s" id="JAD-dA-RVE">
                                 <connections>
                                     <action selector="scanDir:" target="HaW-5U-qvL" id="o1P-4s-k02"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="pKj-Ua-HB0"/>
+                            <menuItem title="Build" keyEquivalent="b" id="VsW-mO-shg">
+                                <connections>
+                                    <action selector="buildVideo:" target="HaW-5U-qvL" id="wDE-B8-2Io"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Extract" keyEquivalent="e" id="CBE-GI-0w8">
