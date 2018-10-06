@@ -4,7 +4,7 @@
 
 @interface Controller : NSObject {
     IBOutlet NSButton *add_files, *remove_file, *move_file_up, *move_file_down, *build_video, *stretch_video, *clear_button, *scan_button, *scan_dir_button;
-    IBOutlet NSButton *radio_search, *radio_match;
+    IBOutlet NSButton *radio_search, *radio_match, *radio_byframe, *radio_bysecond;
     IBOutlet TableView *table_view;
     IBOutlet NSTextView  *text_log;
     IBOutlet NSTextField *field_fps, *field_w, *field_h, *reg_text;
@@ -36,6 +36,7 @@
 - (IBAction) setShowImage:(id) sender;
 - (IBAction) extractSelectFile: (id) sender;
 - (IBAction) extractFile: (id) sender;
+- (IBAction) setFilenameRadio: (id) sender;
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3);

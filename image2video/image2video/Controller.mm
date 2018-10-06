@@ -315,6 +315,16 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
         if([fileName length] > 0) {
             [extract_output setTitle:@"Stop"];
             [build_video setEnabled:NO];
+            
+            NSInteger byFrameOrName = 0;
+            
+            
+            if([radio_bysecond integerValue] == NSOnState) {
+                byFrameOrName = 0;
+            } else if([radio_byframe integerValue] == NSOnState) {
+                byFrameOrName = 1;
+            }
+            
             NSButton *e_output = extract_output;
             NSButton *b_output = build_video;
             NSProgressIndicator *extract_prog = extract_progress;
@@ -329,29 +339,63 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                     });
                 }
                 cv::Mat frame;
+                std::ostringstream stream;
+                
                 long count = (long) cap.get(CV_CAP_PROP_FRAME_COUNT);
                 long image_index = 0;
-                std::ostringstream stream;
-                stream << count;
+                double fps = cap.get(CV_CAP_PROP_FPS);
+                if(fps == 0) {
+                    // error message
+                    return;
+                }
+                double video_time = (count/fps);
+                if(byFrameOrName == 1)
+                	stream << count;
+                 else if(byFrameOrName == 0)
+                     stream << (long)video_time;
+                
+                NSLog(@"Video Time: %f", video_time);
+                long frame_index = 0;
+                long frame_index_max = (long)fps;
                 long stream_count = stream.str().length();
+                NSString *file_output = nil;
+                long seconds = 0;
                 while(cap.read(frame)) {
                     std::ostringstream index;
-                    index.width(stream_count+1);
-                    index.fill('0');
-                    index << image_index+1;
-                    NSString *file_output = [NSString stringWithFormat:@"%@/%@.%s.png", dir_output,prefix,index.str().c_str()];
-                    cv::imwrite([file_output UTF8String], frame);
-                    
-                    float val = (float)(image_index+1);
+                    if(byFrameOrName == 1) {
+                    	index.width(stream_count+1);
+                    	index.fill('0');
+                    	index << image_index+1;
+                    	file_output = [NSString stringWithFormat:@"%@/%@.%s.png", dir_output,prefix,index.str().c_str()];
+                    	cv::imwrite([file_output UTF8String], frame);
+                        ++image_index;
+
+                    } if(byFrameOrName == 0) {
+                        index.width(stream_count+1);
+                        index.fill('0');
+                        index << seconds+1;
+                        std::ostringstream frame_num;
+                        frame_num.width(2);
+                        frame_num.fill('0');
+                        frame_num << frame_index+1;
+                        file_output = [NSString stringWithFormat:@"%@/%@.%s-%s.png", dir_output, prefix, index.str().c_str(), frame_num.str().c_str()];
+                        cv::imwrite([file_output UTF8String],frame);
+                        ++frame_index;
+                        if(frame_index >= frame_index_max) {
+                            frame_index = 0;
+                            ++seconds;
+                        }
+                        ++image_index;
+                    }
+                    float val = (float)(image_index);
                     float size = (float)count;
                     float percent_complete = 0;
                     if(size != 0)
                         percent_complete = (val/size)*100;
                     
                     dispatch_sync(dispatch_get_main_queue(), ^{
-                        [self flushToLog: [NSString stringWithFormat:@"Extracting Wrote file: %@ [%ld/%ld] - %ld%%\n", file_output, (image_index+1),count,(long)percent_complete]];
+                        [self flushToLog: [NSString stringWithFormat:@"Extracting Wrote file: %@ [%ld/%ld] - %ld%%\n", file_output, (image_index),count,(long)percent_complete]];
                     });
-                    ++image_index;
                     if([self quitExtractLoop] == YES) {
                         dispatch_sync(dispatch_get_main_queue(), ^{
                             [e_output setTitle:@"Extract Frames"];
@@ -376,6 +420,10 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
     } else {
         [self setQuitExtractLoop:YES];
     }
+}
+
+- (IBAction) setFilenameRadio: (id) sender {
+    
 }
 
 @end

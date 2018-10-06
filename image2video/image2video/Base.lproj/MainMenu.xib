@@ -36,6 +36,8 @@
                 <outlet property="menu_select" destination="Qi7-st-YYw" id="Syp-v6-RtT"/>
                 <outlet property="move_file_down" destination="dE9-UJ-Nvn" id="Zdf-S8-OzG"/>
                 <outlet property="move_file_up" destination="chd-3L-Jty" id="8Gh-TB-VBs"/>
+                <outlet property="radio_byframe" destination="Ikd-Yg-DUM" id="Bae-qJ-dts"/>
+                <outlet property="radio_bysecond" destination="Pcn-s4-aOS" id="cks-ak-mJJ"/>
                 <outlet property="radio_match" destination="BuE-cq-6aK" id="dAr-6u-3ys"/>
                 <outlet property="radio_search" destination="Cvr-83-bH7" id="IdD-Um-c2l"/>
                 <outlet property="reg_text" destination="aig-Rp-uIg" id="CE1-qM-ioC"/>
@@ -499,32 +501,23 @@
         <window title="Extract Frames" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="6gE-b5-Kg2">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES"/>
-            <rect key="contentRect" x="909" y="179" width="509" height="81"/>
+            <rect key="contentRect" x="909" y="179" width="509" height="106"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" misplaced="YES" id="9v3-Ru-iWX">
-                <rect key="frame" x="0.0" y="0.0" width="509" height="81"/>
+                <rect key="frame" x="0.0" y="0.0" width="509" height="106"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" misplaced="YES" id="Y3q-la-VGu">
-                        <rect key="frame" x="109" y="38" width="267" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="filename_prefix" drawsBackground="YES" id="nt0-RY-tTQ">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="LcT-xP-Vfe">
-                        <rect key="frame" x="18" y="41" width="85" height="17"/>
+                        <rect key="frame" x="18" y="46" width="96" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output Prefix" id="rJL-WL-i2h">
-                            <font key="font" metaFont="system"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Output Prefix:" id="rJL-WL-i2h">
+                            <font key="font" metaFont="systemBold"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" misplaced="YES" id="HRO-Xm-ia9">
-                        <rect key="frame" x="378" y="31" width="117" height="32"/>
+                        <rect key="frame" x="378" y="36" width="117" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Select Video" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CfX-88-oNJ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -535,7 +528,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="h02-ow-TTB">
-                        <rect key="frame" x="89" y="15" width="263" height="17"/>
+                        <rect key="frame" x="89" y="20" width="263" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="qfl-Z1-ZGW">
                             <font key="font" metaFont="system"/>
@@ -544,7 +537,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="qXf-PE-tQa">
-                        <rect key="frame" x="18" y="15" width="67" height="17"/>
+                        <rect key="frame" x="18" y="20" width="67" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filename:" id="sqH-eC-jC2">
                             <font key="font" metaFont="systemBold"/>
@@ -553,11 +546,11 @@
                         </textFieldCell>
                     </textField>
                     <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="CaC-Br-uQl">
-                        <rect key="frame" x="360" y="15" width="16" height="16"/>
+                        <rect key="frame" x="360" y="20" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </progressIndicator>
                     <button verticalHuggingPriority="750" misplaced="YES" id="c1X-WY-9e0">
-                        <rect key="frame" x="378" y="6" width="117" height="32"/>
+                        <rect key="frame" x="378" y="11" width="117" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Extract Frames" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tUf-3U-bWv">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -567,9 +560,49 @@
                             <action selector="extractFile:" target="HaW-5U-qvL" id="k5F-xL-nhx"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="Ikd-Yg-DUM">
+                        <rect key="frame" x="278" y="73" width="115" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="by Frame Index" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="iZt-ad-XDW">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="setFilenameRadio:" target="HaW-5U-qvL" id="Qfo-Tt-frf"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" misplaced="YES" id="Pcn-s4-aOS">
+                        <rect key="frame" x="398" y="73" width="93" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="radio" title="by Seconds" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ek7-bZ-XND">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="setFilenameRadio:" target="HaW-5U-qvL" id="6Rw-pP-I8b"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="dCg-Ce-lWT">
+                        <rect key="frame" x="18" y="73" width="217" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Video Filename Output Ordering:" id="h5V-mH-P9R">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" misplaced="YES" id="Y3q-la-VGu">
+                        <rect key="frame" x="120" y="42" width="256" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="filename_prefix" drawsBackground="YES" id="nt0-RY-tTQ">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="625" y="-34"/>
+            <point key="canvasLocation" x="624.5" y="-22"/>
         </window>
     </objects>
 </document>
