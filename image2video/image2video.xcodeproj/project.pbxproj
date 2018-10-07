@@ -48,6 +48,7 @@
 		7F74E58321616E54008508B7 /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F74E58221616E54008508B7 /* VideoDecodeAcceleration.framework */; };
 		7FB6802F2162D5C000362EE3 /* reel.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7FB6802E2162D5C000362EE3 /* reel.icns */; };
 		7FB680322166E04F00362EE3 /* CV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7FB680312166E04F00362EE3 /* CV.cpp */; };
+		7FF193A9216A99090086DFB7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7FF193A7216A99080086DFB7 /* Credits.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		7FB6802E2162D5C000362EE3 /* reel.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = reel.icns; sourceTree = "<group>"; };
 		7FB680302166E04F00362EE3 /* CV.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CV.hpp; sourceTree = "<group>"; };
 		7FB680312166E04F00362EE3 /* CV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CV.cpp; sourceTree = "<group>"; };
+		7FF193A8216A99080086DFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Base; path = Base.lproj/Credits.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				7F74E52721616313008508B7 /* AppDelegate.h */,
 				7F74E52821616313008508B7 /* AppDelegate.m */,
 				7F74E52A21616313008508B7 /* Assets.xcassets */,
+				7FF193A7216A99080086DFB7 /* Credits.rtf */,
 				7F74E52C21616313008508B7 /* MainMenu.xib */,
 				7F74E52F21616313008508B7 /* Info.plist */,
 				7FB6802E2162D5C000362EE3 /* reel.icns */,
@@ -295,6 +298,7 @@
 				7F74E52B21616313008508B7 /* Assets.xcassets in Resources */,
 				7FB6802F2162D5C000362EE3 /* reel.icns in Resources */,
 				7F74E52E21616313008508B7 /* MainMenu.xib in Resources */,
+				7FF193A9216A99090086DFB7 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +326,14 @@
 				7F74E52D21616313008508B7 /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		7FF193A7216A99080086DFB7 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FF193A8216A99080086DFB7 /* Base */,
+			);
+			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
