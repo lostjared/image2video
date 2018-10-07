@@ -467,6 +467,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/cvlibs",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = (
 					/usr/lib/libbz2.dylib,
 					/usr/lib/libdl.dylib,
@@ -494,6 +495,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/cvlibs",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = (
 					/usr/lib/libbz2.dylib,
 					/usr/lib/libdl.dylib,

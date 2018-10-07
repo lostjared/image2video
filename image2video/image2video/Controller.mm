@@ -73,7 +73,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
             quitLoop = NO;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
                 cv::VideoWriter writer;
-                if(!writer.open([fileName UTF8String],CV_FOURCC('m', 'p', '4', 'v'), fps_value, cv::Size(width_value, height_value), true)) {
+                if(!writer.open([fileName UTF8String],CV_FOURCC('m', 'p', '4', 'v'), fps_value, cv::Size((int)width_value, (int)height_value), true)) {
                     dispatch_sync(dispatch_get_main_queue(), ^{
                         [self flushToLog: [NSString stringWithFormat:@"Could not create Video Writer with file: %@\n", fileName]];
                         [self enableControls];
@@ -118,7 +118,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                 }
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    [self flushToLog: [NSString stringWithFormat:@"100%% - Completed wrote to file: %@\n",fileName]];
+                    [self flushToLog: [NSString stringWithFormat:@"100%% - %dx%d FPS: %f Completed: %@\n",(int)width_value, (int)height_value, fps_value, fileName]];
                     [self enableControls];
                 });
                 writer.release();

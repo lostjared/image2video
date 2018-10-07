@@ -410,7 +410,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" misplaced="YES" id="CU5-Ln-u9F">
-                        <rect key="frame" x="655" y="226" width="84" height="18"/>
+                        <rect key="frame" x="657" y="226" width="84" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Stretch " bezelStyle="regularSquare" imagePosition="left" inset="2" id="0yV-k9-BZn">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
