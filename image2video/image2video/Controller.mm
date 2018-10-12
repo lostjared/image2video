@@ -111,14 +111,16 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                     float percent_complete = 0;
                     if(size != 0)
                         percent_complete = (val/size)*100;
-                    
+                    double seconds = val/fps_value;
                     dispatch_sync(dispatch_get_main_queue(), ^{
-                        [self flushToLog: [NSString stringWithFormat:@"Wrote frame [%ld/%ld] - %d%% \n", (long)(i+1), (long)[self.table_controller.file_values count], (int)percent_complete]];;
+                        [self flushToLog: [NSString stringWithFormat:@"Wrote frame [%ld/%ld] - %d%% - %.2f Seconds\n", (long)(i+1), (long)[self.table_controller.file_values count], (int)percent_complete, seconds]];
                     });
                 }
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    [self flushToLog: [NSString stringWithFormat:@"100%% - %dx%d FPS: %f Completed: %@\n",(int)width_value, (int)height_value, fps_value, fileName]];
+                    double length = [self.table_controller.file_values count];
+                    double seconds = length/fps_value;
+                    [self flushToLog: [NSString stringWithFormat:@"100%% - %dx%d FPS: %.2f Completed %.2f Seconds - %@\n",(int)width_value, (int)height_value, fps_value, seconds, fileName]];
                     [self enableControls];
                 });
                 writer.release();
