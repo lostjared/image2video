@@ -3,6 +3,8 @@
 
 Project to practice Objective-C++ built for macOS 10.13 or greater
 
+To see a example video created with this project: https://youtu.be/UuIJyvBhUXw
+
 This program can turn JPG/PNG/BMP/TIFF images into a MPEG-4 video file at a desired frame rate and resolution.
 Easy to create animations or use images from video files in whatever.
 
