@@ -49,6 +49,7 @@
                 <outlet property="stretch_video" destination="CU5-Ln-u9F" id="vFA-bC-u55"/>
                 <outlet property="table_view" destination="tjU-68-SVy" id="eRm-ai-Dgu"/>
                 <outlet property="text_log" destination="O5u-92-spW" id="xlD-pZ-eAg"/>
+                <outlet property="video_info" destination="63x-wz-0ZX" id="dFY-ZB-Gxa"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -218,6 +219,9 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <action selector="updateInfoLabel:" target="HaW-5U-qvL" id="YcB-Vd-bjs"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="2c5-Q9-QbC">
                         <rect key="frame" x="231" y="259" width="32" height="17"/>
@@ -236,6 +240,9 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <action selector="updateInfoLabel:" target="HaW-5U-qvL" id="YPg-Ji-1Cm"/>
+                        </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="8uN-fk-9MR">
                         <rect key="frame" x="459" y="261" width="11" height="17"/>
@@ -309,6 +316,9 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <action selector="updateInfoLabel:" target="HaW-5U-qvL" id="a3W-Tr-3vt"/>
+                        </connections>
                     </textField>
                     <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Cya-GQ-9Mh">
                         <rect key="frame" x="21" y="298" width="881" height="296"/>
@@ -417,6 +427,15 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="63x-wz-0ZX">
+                        <rect key="frame" x="28" y="227" width="625" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="nwK-FW-M2Q">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <point key="canvasLocation" x="-147" y="214"/>

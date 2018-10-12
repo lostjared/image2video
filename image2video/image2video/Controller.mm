@@ -170,7 +170,15 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
             [table_controller addFile: [u path]];
         }
         [table_view reloadData];
+        [self updateInfoLabel:nil];
     }
+}
+
+- (IBAction) updateInfoLabel: (id) sender {
+    double ffps = [field_fps doubleValue];
+    NSInteger total_frames = [table_controller.file_values count];
+    double flen = (total_frames/ffps);
+    [video_info setStringValue: [NSString stringWithFormat:@"FPS: %.2f Frames: %ld Runtime: %.2f Second(s)", ffps,total_frames,flen]];
 }
 
 - (IBAction) rmvFiles: (id) sender {
@@ -178,6 +186,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
     if(row >= 0) {
         [table_controller removeIndex:row];
         [table_view reloadData];
+        [self updateInfoLabel:nil];
     }
 }
 
@@ -198,6 +207,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
 - (IBAction) clearList: (id) sender {
     [table_controller clearList];
     [table_view reloadData];
+    [self updateInfoLabel:nil];
 }
 
 - (IBAction) scanDir: (id) sender {
@@ -264,6 +274,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
                     [scan_ setEnabled:YES];
                     [table_view_ reloadData];
                     [scan_prog stopAnimation:self];
+                    [self updateInfoLabel:nil];
                 });
             }
         });

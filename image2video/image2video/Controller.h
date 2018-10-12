@@ -7,7 +7,7 @@
     IBOutlet NSButton *radio_search, *radio_match, *radio_byframe, *radio_bysecond;
     IBOutlet TableView *table_view;
     IBOutlet NSTextView  *text_log;
-    IBOutlet NSTextField *field_fps, *field_w, *field_h, *reg_text;
+    IBOutlet NSTextField *field_fps, *field_w, *field_h, *reg_text, *video_info;
     IBOutlet NSWindow *scan_window;
     IBOutlet NSProgressIndicator *scan_progress, *extract_progress;
     IBOutlet NSWindow *extract_win;
@@ -37,6 +37,7 @@
 - (IBAction) extractSelectFile: (id) sender;
 - (IBAction) extractFile: (id) sender;
 - (IBAction) setFilenameRadio: (id) sender;
+- (IBAction) updateInfoLabel: (id) sender;
 @end
 
 NSInteger _NSRunAlertPanel(NSString *msg1, NSString *msg2, NSString *button1, NSString *button2, NSString *button3);
