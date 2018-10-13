@@ -130,7 +130,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
 }
 
 - (BOOL) checkInput: (double *)fps_value width:(double *)width_value height:(double *)height_value {
-    *fps_value = atof([[field_fps stringValue] UTF8String]);
+    *fps_value = [field_fps doubleValue];
     if(*fps_value<= 0 || *fps_value > 60) {
         _NSRunAlertPanel(@"FPS value is incorrect", @"Please use a valid frames per second value", @"Ok", nil, nil);
         *fps_value = 0;
@@ -138,7 +138,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
         *height_value = 0;
         return NO;
     }
-    *width_value = atof([[field_w stringValue] UTF8String]);
+    *width_value = [field_w doubleValue];
     if(*width_value <= 0 || *width_value > 3840) {
         _NSRunAlertPanel(@"Enter valid frame width", @"Please use a valid frame width variable", @"Ok", nil, nil);
         *fps_value = 0;
@@ -146,7 +146,7 @@ void scanDirectoriesRegEx(std::string dir_path, std::string regex, int mode, std
         *height_value = 0;
         return NO;
     }
-    *height_value = atof([[field_h stringValue] UTF8String]);
+    *height_value = [field_h doubleValue];
     if(*height_value <= 0 || *height_value > 2160) {
         _NSRunAlertPanel(@"Enter valid frame height", @"Please use a valid frame height variable", @"Ok", nil, nil);
         *fps_value = 0;
